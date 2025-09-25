@@ -5,7 +5,7 @@
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(22, 163, 74, 0.2);
+  border: 1px solid rgba(46, 125, 50, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -13,7 +13,7 @@
   margin: 0.5rem 0;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #16a34a;
+  color: #2E7D32;
 }
 
 .countdown-timer {
@@ -35,8 +35,8 @@
 .time-value {
   font-size: 3rem;
   font-weight: 700;
-  color: #16a34a;
-  text-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+  color: #2E7D32;
+  text-shadow: 0 2px 4px rgba(46, 125, 50, 0.2);
   margin-bottom: 0.5rem;
 }
 
@@ -48,7 +48,7 @@
 
 .time-separator {
   font-size: 2rem;
-  color: #16a34a;
+  color: #2E7D32;
   font-weight: 700;
   margin: 0 0.5rem;
 }

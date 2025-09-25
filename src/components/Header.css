@@ -1,0 +1,376 @@
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(22, 163, 74, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  background: transparent;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.logo-text {
+  flex: 1;
+}
+
+.logo-acronym {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2E7D32;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.logo-arabic {
+  font-size: 0.8rem;
+  color: #2E7D32;
+  font-weight: 500;
+  margin: 0.1rem 0;
+  direction: rtl;
+  text-align: left;
+}
+
+.logo-english {
+  font-size: 0.7rem;
+  color: #6b7280;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 2;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.header-actions .btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+  background: #2E7D32;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.header-actions .btn:hover {
+  background: #1B5E20;
+  transform: translateY(-2px);
+}
+
+.language-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.globe-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.globe-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  border-color: #2563eb;
+}
+
+.globe-btn svg {
+  transition: all 0.3s ease;
+}
+
+.globe-btn:hover svg {
+  transform: rotate(10deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  min-width: 120px;
+  z-index: 1000;
+  animation: dropdownFadeIn 0.3s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.lang-option.fr {
+  color: #dc2626;
+}
+
+.lang-option.en {
+  color: #2563eb;
+}
+
+.lang-option:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.lang-option.fr.active {
+  background: #fef2f2;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.lang-option.en.active {
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.lang-separator {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #2E7D32;
+  background: rgba(46, 125, 50, 0.1);
+}
+
+.nav-link.active {
+  color: #2E7D32;
+  background: rgba(46, 125, 50, 0.1);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #374151;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu-toggle.menu-open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.menu-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.menu-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logo-section {
+    gap: 0.8rem;
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+  
+  .logo-acronym {
+    font-size: 1.1rem;
+  }
+  
+  .logo-arabic {
+    font-size: 0.7rem;
+  }
+  
+  .logo-english {
+    font-size: 0.6rem;
+  }
+  
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(22, 163, 74, 0.2);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .nav.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(22, 163, 74, 0.1);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: stretch;
+  }
+  
+  .header-actions .btn {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .language-switcher {
+    justify-content: center;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.6rem 1rem;
+  }
+  
+  .logo-section {
+    gap: 0.6rem;
+  }
+  
+  .logo-image {
+    height: 35px;
+  }
+  
+  .logo-acronym {
+    font-size: 1rem;
+  }
+  
+  .logo-arabic {
+    font-size: 0.6rem;
+  }
+  
+  .logo-english {
+    font-size: 0.5rem;
+  }
+}
