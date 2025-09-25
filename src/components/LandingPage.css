@@ -1,0 +1,187 @@
+.landing-page {
+  min-height: 100vh;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  top: 15%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  top: 25%;
+  right: 12%;
+  animation-delay: 1.5s;
+}
+
+.shape-3 {
+  top: 70%;
+  left: 15%;
+  animation-delay: 3s;
+}
+
+.shape-4 {
+  top: 60%;
+  right: 25%;
+  animation-delay: 4.5s;
+}
+
+.shape-5 {
+  top: 40%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.shape-6 {
+  top: 80%;
+  right: 8%;
+  animation-delay: 5.5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  padding: 2rem;
+  color: #374151;
+  margin-top: 2rem;
+}
+
+.logo-section {
+  margin-bottom: 3rem;
+}
+
+.logo-image {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  background: transparent;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.logo h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #16a34a;
+  text-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+}
+
+.logo-subtitle {
+  margin-top: 1rem;
+}
+
+.logo-subtitle span {
+  font-size: 1.2rem;
+  color: #6b7280;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.main-message {
+  margin-bottom: 3rem;
+}
+
+.construction-notice h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #f59e0b;
+  text-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.description {
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: #6b7280;
+}
+
+.contact-info {
+  margin: 3rem 0 2rem 0;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  color: #16a34a;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+  
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+  
+  .logo-subtitle span {
+    font-size: 1rem;
+  }
+  
+  .construction-notice h2 {
+    font-size: 1.5rem;
+  }
+  
+  .description p {
+    font-size: 1rem;
+  }
+  
+  .shape-1, .shape-2, .shape-3, .shape-4 {
+    display: none;
+  }
+}
