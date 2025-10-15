@@ -1,27 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import MembershipForm from '../components/MembershipForm';
 import './MembershipPage.css';
 
 const MembershipPage = () => {
   const { t } = useTranslation();
+  const [showForm, setShowForm] = useState(false);
+  
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
   
   return (
     <div className="membership-page">
       {/* Hero Section */}
       <section className="membership-hero">
+        <div className="hero-background">
+          <img src="/images/membership-hero.jpg" alt="Membership Hero" className="hero-image" />
+          <div className="hero-overlay"></div>
+        </div>
         <div className="container">
           <div className="membership-hero-content">
             <h1>{t('membership.heroTitle')}</h1>
             <p className="hero-subtitle">{t('membership.heroSubtitle')}</p>
+            <button onClick={handleOpenForm} className="btn btn-hero-primary">
+              {t('membership.cta')}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Description Section */}
+      <section className="hero-description-section">
+        <div className="container">
+          <div className="hero-description-content">
             <p className="hero-description">
               {t('membership.heroDescription')}
             </p>
             <div className="hero-details">
               <p>{t('membership.heroDetails')}</p>
             </div>
-            <a href="#join" className="btn btn-hero-primary">
-              {t('membership.cta')}
-            </a>
           </div>
         </div>
       </section>
@@ -80,7 +102,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
+              <button className="btn btn-primary category-btn" onClick={handleOpenForm}>{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card featured">
@@ -97,7 +119,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
+              <button className="btn btn-primary category-btn" onClick={handleOpenForm}>{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card">
@@ -113,7 +135,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
+              <button className="btn btn-primary category-btn" onClick={handleOpenForm}>{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card">
@@ -129,7 +151,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
-              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
+              <button className="btn btn-primary category-btn" onClick={handleOpenForm}>{t('membership.joinNow')}</button>
             </div>
           </div>
         </div>
@@ -251,12 +273,17 @@ const MembershipPage = () => {
           <div className="final-cta-content">
             <h2>{t('membership.finalCtaTitle')}</h2>
             <p>{t('membership.finalCtaDesc')}</p>
-            <a href="/contact" className="btn btn-hero-primary">
+            <button onClick={handleOpenForm} className="btn btn-hero-primary">
               {t('membership.finalCtaButton')}
-            </a>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Membership Form Modal */}
+      {showForm && (
+        <MembershipForm onClose={handleCloseForm} />
+      )}
     </div>
   );
 };

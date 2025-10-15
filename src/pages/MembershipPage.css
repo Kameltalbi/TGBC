@@ -45,10 +45,47 @@
 
 /* Hero Section */
 .membership-hero {
-  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
-  color: white;
-  padding: 6rem 0;
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.6) 0%, rgba(38, 166, 154, 0.4) 100%);
+  z-index: 2;
+}
+
+.membership-hero-content {
+  position: relative;
+  z-index: 3;
   text-align: center;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .membership-hero-content h1 {
@@ -59,41 +96,15 @@
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
   opacity: 0.9;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.hero-details {
-  max-width: 900px;
-  margin: 0 auto 2.5rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.hero-details p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: 0.95;
-  margin: 0;
-  text-align: left;
 }
 
 .btn-hero-primary {
-  background: white;
-  color: #2E7D32;
+  background: #2E7D32;
+  color: white;
   padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
@@ -105,7 +116,41 @@
 
 .btn-hero-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+  background: #1B5E20;
+}
+
+/* Hero Description Section */
+.hero-description-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.hero-description-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-details {
+  background: #F5F5F5;
+  padding: 2rem;
+  border-radius: 16px;
+  border-left: 4px solid #2E7D32;
+}
+
+.hero-details p {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Why Join Section */
@@ -511,6 +556,11 @@
 }
 
 @media (max-width: 768px) {
+  .membership-hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
   .membership-hero-content h1 {
     font-size: 2.5rem;
   }
@@ -519,13 +569,16 @@
     font-size: 1.2rem;
   }
   
+  .hero-description-section {
+    padding: 3rem 0;
+  }
+  
   .hero-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .hero-details {
     padding: 1.5rem;
-    margin-bottom: 2rem;
   }
   
   .hero-details p {
