@@ -108,32 +108,56 @@
   align-items: center;
 }
 
-.globe-btn {
+.language-btn {
   background: white;
   border: 2px solid #e5e7eb;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
 }
 
-.globe-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-  border-color: #2563eb;
+.language-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+  border-color: #2E7D32;
+  color: #2E7D32;
 }
 
-.globe-btn svg {
+.language-btn svg {
   transition: all 0.3s ease;
 }
 
-.globe-btn:hover svg {
+.language-btn:hover svg {
   transform: rotate(10deg);
+}
+
+.current-language {
+  font-weight: 600;
+  color: inherit;
+}
+
+.current-language.french {
+  color: #2563eb; /* Bleu pour le français */
+}
+
+.current-language.english {
+  color: #dc2626; /* Rouge pour l'anglais */
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.language-btn:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .language-dropdown {
@@ -179,11 +203,11 @@
 }
 
 .lang-option.fr {
-  color: #dc2626;
+  color: #2563eb; /* Bleu pour le français */
 }
 
 .lang-option.en {
-  color: #2563eb;
+  color: #dc2626; /* Rouge pour l'anglais */
 }
 
 .lang-option:hover {
@@ -192,14 +216,14 @@
 }
 
 .lang-option.fr.active {
-  background: #fef2f2;
-  color: #dc2626;
+  background: #eff6ff; /* Fond bleu clair pour français actif */
+  color: #2563eb;
   font-weight: 600;
 }
 
 .lang-option.en.active {
-  background: #eff6ff;
-  color: #2563eb;
+  background: #fef2f2; /* Fond rouge clair pour anglais actif */
+  color: #dc2626;
   font-weight: 600;
 }
 
@@ -304,6 +328,16 @@
     font-size: 0.6rem;
   }
   
+  .language-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .language-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+  
   .nav {
     position: absolute;
     top: 100%;
@@ -357,6 +391,16 @@
   
   .language-switcher {
     justify-content: center;
+  }
+  
+  .language-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .language-btn svg {
+    width: 14px;
+    height: 14px;
   }
   
   .menu-toggle {

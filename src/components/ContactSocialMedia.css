@@ -1,0 +1,80 @@
+/* Contact Social Media - Simplified Icons */
+.contact-social-media {
+  margin-top: 2rem;
+}
+
+.contact-social-media h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2E7D32;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--social-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: var(--social-color);
+}
+
+.contact-social-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--social-color);
+  transition: color 0.3s ease;
+}
+
+.contact-social-link:hover .contact-social-icon {
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-social-links {
+    gap: 0.8rem;
+  }
+  
+  .contact-social-link {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .contact-social-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-social-links {
+    gap: 0.6rem;
+  }
+  
+  .contact-social-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .contact-social-icon {
+    font-size: 0.9rem;
+  }
+}

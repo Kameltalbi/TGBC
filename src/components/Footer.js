@@ -38,9 +38,9 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Coordonnées TGBC</h4>
             <div className="contact-info">
-              <p>📧 info@tunisiagbc.org</p>
-              <p>📞 +216 XX XXX XXX</p>
-              <p>📍 Avenue Habib Bourguiba<br />1000 Tunis, Tunisie</p>
+              <p>📧 contact@tunisiagbc.org</p>
+              <p>📞 +216 71 709 647</p>
+              <p>📍 Immeuble Hayet, 2 rue du Lac Loch Ness<br />Mezzanine, App 5, Les Berges du Lac 1053</p>
             </div>
           </div>
 

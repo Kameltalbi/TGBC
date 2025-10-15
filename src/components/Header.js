@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import MembershipForm from './MembershipForm';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const [showMembershipForm, setShowMembershipForm] = useState(false);
   const location = useLocation();
   const languageMenuRef = useRef(null);
   const { t, i18n } = useTranslation();
@@ -25,6 +27,15 @@ const Header = () => {
   const selectLanguage = (lang) => {
     i18n.changeLanguage(lang.toLowerCase());
     setIsLanguageMenuOpen(false);
+  };
+
+  const handleOpenMembershipForm = () => {
+    setShowMembershipForm(true);
+    setIsMenuOpen(false); // Fermer le menu mobile si ouvert
+  };
+
+  const handleCloseMembershipForm = () => {
+    setShowMembershipForm(false);
   };
 
   useEffect(() => {
@@ -103,14 +114,20 @@ const Header = () => {
           <div className="header-actions">
             <div className="language-switcher" ref={languageMenuRef}>
               <button 
-                className="globe-btn"
+                className="language-btn"
                 onClick={toggleLanguageMenu}
                 title="Changer la langue"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="2"/>
-                  <path d="M2 12h20" stroke="#2563eb" strokeWidth="2"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2563eb" strokeWidth="2"/>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M2 12h20" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+                <span className={`current-language ${i18n.language === 'fr' ? 'french' : 'english'}`}>
+                  {i18n.language === 'fr' ? 'FR' : 'EN'}
+                </span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="dropdown-arrow">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
               {isLanguageMenuOpen && (
@@ -130,9 +147,9 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/contact" className="btn btn-primary" onClick={closeMenu}>
+            <button className="btn btn-primary" onClick={handleOpenMembershipForm}>
               {t('header.becomeMember')}
-            </Link>
+            </button>
           </div>
         </nav>
 
@@ -146,6 +163,11 @@ const Header = () => {
           <span></span>
         </button>
       </div>
+
+      {/* Membership Form Modal */}
+      {showMembershipForm && (
+        <MembershipForm onClose={handleCloseMembershipForm} />
+      )}
     </header>
   );
 };

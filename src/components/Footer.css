@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
   color: white;
   margin-top: 4rem;
 }
@@ -18,7 +18,7 @@
 }
 
 .footer-section h3 {
-  color: #2E7D32;
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;

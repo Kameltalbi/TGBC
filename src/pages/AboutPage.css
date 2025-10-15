@@ -14,6 +14,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: white !important;
 }
 
 .about-hero-content h2 {
@@ -21,6 +22,11 @@
   font-weight: 400;
   margin-bottom: 1.5rem;
   opacity: 0.9;
+  color: white !important;
+}
+
+.about-hero-content .hero-subtitle {
+  color: white !important;
 }
 
 .about-hero-content p {
@@ -28,6 +34,13 @@
   max-width: 600px;
   margin: 0 auto;
   opacity: 0.9;
+  color: white !important;
+}
+
+.about-hero-content .hero-description {
+  color: white !important;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 /* Vision Section */

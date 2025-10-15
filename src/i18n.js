@@ -487,11 +487,11 @@ const frTranslations = {
     info: {
       title: "Informations de contact",
       address: "Adresse",
-      addressValue: "Adresse du siège (à préciser)",
+      addressValue: "Immeuble Hayet, 2 rue du Lac Loch Ness, Mezzanine, App 5\nLes Berges du Lac 1053",
       phone: "Téléphone",
-      phoneValue: "+216 XX XXX XXX",
+      phoneValue: "+216 71 709 647",
       email: "Email",
-      emailValue: "contact@tgbc.org",
+      emailValue: "contact@tunisiagbc.org",
       hours: "Heures d'ouverture",
       hoursValue: "Lundi - Vendredi: 9h00 - 17h00"
     },
@@ -994,11 +994,11 @@ const enTranslations = {
     info: {
       title: "Contact information",
       address: "Address",
-      addressValue: "Headquarters address (to be specified)",
+      addressValue: "Immeuble Hayet, 2 rue du Lac Loch Ness, Mezzanine, App 5\nLes Berges du Lac 1053",
       phone: "Phone",
-      phoneValue: "+216 XX XXX XXX",
+      phoneValue: "+216 71 709 647",
       email: "Email",
-      emailValue: "contact@tgbc.org",
+      emailValue: "contact@tunisiagbc.org",
       hours: "Opening hours",
       hoursValue: "Monday - Friday: 9:00 AM - 5:00 PM"
     },

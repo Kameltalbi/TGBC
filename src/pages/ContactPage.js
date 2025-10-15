@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import SocialMedia from '../components/SocialMedia';
+import ContactSocialMedia from '../components/ContactSocialMedia';
 import './ContactPage.css';
 
 const ContactPage = () => {
@@ -198,55 +198,7 @@ const ContactPage = () => {
                     <p>{t('contact.info.phoneValue')}</p>
                   </div>
                 </div>
-
-                <div className="info-item">
-                  <div className="info-icon">📧</div>
-                  <div className="info-content">
-                    <h5>{t('contact.info.email')}</h5>
-                    <p>{t('contact.info.emailValue')}</p>
-                  </div>
-                </div>
-
-                <div className="info-item">
-                  <div className="info-icon">🕒</div>
-                  <div className="info-content">
-                    <h5>{t('contact.info.hours')}</h5>
-                    <p>{t('contact.info.hoursValue')}</p>
-                  </div>
-                </div>
               </div>
-
-              <div className="social-section">
-                <h5>Suivez-nous</h5>
-                <SocialMedia />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="faq-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>{t('contact.faq.title')}</h2>
-          </div>
-          <div className="faq-grid">
-            <div className="faq-item">
-              <h4>{t('contact.faq.q1')}</h4>
-              <p>{t('contact.faq.a1')}</p>
-            </div>
-            <div className="faq-item">
-              <h4>{t('contact.faq.q2')}</h4>
-              <p>{t('contact.faq.a2')}</p>
-            </div>
-            <div className="faq-item">
-              <h4>{t('contact.faq.q3')}</h4>
-              <p>{t('contact.faq.a3')}</p>
-            </div>
-            <div className="faq-item">
-              <h4>{t('contact.faq.q4')}</h4>
-              <p>{t('contact.faq.a4')}</p>
             </div>
           </div>
         </div>
