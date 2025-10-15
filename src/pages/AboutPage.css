@@ -37,22 +37,43 @@
 }
 
 .vision-content {
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
 }
 
-.vision-content h2 {
+.vision-text h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #2E7D32;
   margin-bottom: 2rem;
 }
 
-.vision-content p {
+.vision-text p {
   font-size: 1.2rem;
   color: #374151;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.vision-image {
+  position: relative;
+}
+
+.vision-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(46, 125, 50, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.vision-image img:hover {
+  transform: scale(1.02);
 }
 
 /* Mission Section */
@@ -62,47 +83,45 @@
 }
 
 .mission-content {
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.mission-content h2 {
+.mission-text h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #2E7D32;
   margin-bottom: 2rem;
-  text-align: center;
 }
 
-.mission-content p {
+.mission-text p {
   font-size: 1.2rem;
   color: #374151;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.mission-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mission-list li {
-  font-size: 1.1rem;
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+.mission-image {
   position: relative;
 }
 
-.mission-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #2E7D32;
-  font-weight: bold;
+.mission-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(46, 125, 50, 0.15);
+  transition: transform 0.3s ease;
 }
+
+.mission-image img:hover {
+  transform: scale(1.02);
+}
+
 
 .vision-mission-grid {
   display: grid;
@@ -329,26 +348,6 @@
   margin-bottom: 1.5rem;
 }
 
-.partners-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.partners-list li {
-  font-size: 1.1rem;
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.partners-list li::before {
-  content: "🏢";
-  position: absolute;
-  left: 0;
-}
 
 /* Contact Section */
 .contact-section {
@@ -528,6 +527,18 @@
     font-size: 2.5rem;
   }
   
+  .vision-content,
+  .mission-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .vision-image img,
+  .mission-image img {
+    height: 300px;
+  }
+  
   .vision-mission-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -611,4 +622,146 @@
     font-size: 0.8rem;
     padding: 0.5rem 0.8rem;
   }
+}
+
+/* New Sections Styles */
+.objectives-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.objectives-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.objectives-list {
+  list-style: none;
+  padding: 0;
+}
+
+.objectives-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.objectives-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  color: #2E7D32;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.objectives-list li:last-child {
+  border-bottom: none;
+}
+
+.team-section {
+  padding: 6rem 0;
+  background: #F5F5F5;
+}
+
+.team-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.founders-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.founders-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.founders-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+.network-section {
+  padding: 6rem 0;
+  background: #F5F5F5;
+}
+
+.network-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.network-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.network-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.network-list li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #2E7D32;
+  font-weight: 500;
+  color: #374151;
+}
+
+.downloads-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.downloads-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.downloads-list {
+  list-style: none;
+  padding: 0;
+}
+
+.downloads-list li {
+  background: #F5F5F5;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid #26A69A;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.downloads-list li:hover {
+  background: #e8f5e8;
+  transform: translateX(5px);
 }

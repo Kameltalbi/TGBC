@@ -12,8 +12,9 @@ const AboutPage = () => {
         <div className="container">
           <div className="about-hero-content">
             <h1>{t('about.heroTitle')}</h1>
-            <p>
-              {t('about.heroSubtitle')}
+            <h2 className="hero-subtitle">{t('about.heroSubtitle')}</h2>
+            <p className="hero-description">
+              {t('about.heroDescription')}
             </p>
           </div>
         </div>
@@ -23,10 +24,15 @@ const AboutPage = () => {
       <section className="vision-section">
         <div className="container">
           <div className="vision-content">
-            <h2>{t('about.visionTitle')}</h2>
-            <p>
-              {t('about.visionText')}
-            </p>
+            <div className="vision-text">
+              <h2>{t('about.visionTitle')}</h2>
+              <p>
+                {t('about.visionText')}
+              </p>
+            </div>
+            <div className="vision-image">
+              <img src="/images/about-vision.jpg" alt="Vision TGBC" />
+            </div>
           </div>
         </div>
       </section>
@@ -35,10 +41,26 @@ const AboutPage = () => {
       <section className="mission-section">
         <div className="container">
           <div className="mission-content">
-            <h2>{t('about.missionTitle')}</h2>
-            <p>{t('about.missionText')}</p>
-            <ul className="mission-list">
-              {t('about.missionList', { returnObjects: true }).map((item, index) => (
+            <div className="mission-text">
+              <h2>{t('about.missionTitle')}</h2>
+              <p>{t('about.missionText')}</p>
+            </div>
+            <div className="mission-image">
+              <img src="/images/about-mission.jpg" alt="Mission TGBC" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Objectives Section */}
+      <section className="objectives-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>{t('about.objectivesTitle')}</h2>
+          </div>
+          <div className="objectives-content">
+            <ul className="objectives-list">
+              {t('about.objectivesList', { returnObjects: true }).map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -54,14 +76,14 @@ const AboutPage = () => {
           </div>
           <div className="values-grid">
             <div className="value-card">
+              <div className="value-icon">🌱</div>
+              <h4>{t('about.sustainability')}</h4>
+              <p>{t('about.sustainabilityDesc')}</p>
+            </div>
+            <div className="value-card">
               <div className="value-icon">💡</div>
               <h4>{t('about.innovation')}</h4>
               <p>{t('about.innovationDesc')}</p>
-            </div>
-            <div className="value-card">
-              <div className="value-icon">⚖️</div>
-              <h4>{t('about.integrity')}</h4>
-              <p>{t('about.integrityDesc')}</p>
             </div>
             <div className="value-card">
               <div className="value-icon">🤝</div>
@@ -69,58 +91,69 @@ const AboutPage = () => {
               <p>{t('about.collaborationDesc')}</p>
             </div>
             <div className="value-card">
-              <div className="value-icon">🌱</div>
-              <h4>{t('about.sustainability')}</h4>
-              <p>{t('about.sustainabilityDesc')}</p>
+              <div className="value-icon">🔍</div>
+              <h4>{t('about.transparency')}</h4>
+              <p>{t('about.transparencyDesc')}</p>
+            </div>
+            <div className="value-card">
+              <div className="value-icon">⚖️</div>
+              <h4>{t('about.responsibility')}</h4>
+              <p>{t('about.responsibilityDesc')}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* History Section */}
-      <section className="history-section">
+      {/* Team Section */}
+      <section className="team-section">
         <div className="container">
           <div className="section-header">
-            <h2>{t('about.historyTitle')}</h2>
+            <h2>{t('about.teamTitle')}</h2>
           </div>
-          <div className="history-content">
-            <p>
-              {t('about.historyText1')}
-            </p>
-            <p>
-              {t('about.historyText2')}
-            </p>
+          <div className="team-content">
+            <p>{t('about.teamText')}</p>
           </div>
         </div>
       </section>
 
-      {/* Governance Section */}
-      <section className="governance-section">
+      {/* Founders Section */}
+      <section className="founders-section">
         <div className="container">
           <div className="section-header">
-            <h2>{t('about.governanceTitle')}</h2>
+            <h2>{t('about.foundersTitle')}</h2>
           </div>
-          <div className="governance-content">
-            <p>
-              {t('about.governanceText1')}
-            </p>
-            <p>
-              {t('about.governanceText2')}
-            </p>
+          <div className="founders-content">
+            <p>{t('about.foundersText')}</p>
           </div>
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="partners-section">
+      {/* Network Section */}
+      <section className="network-section">
         <div className="container">
           <div className="section-header">
-            <h2>{t('about.partnersTitle')}</h2>
+            <h2>{t('about.networkTitle')}</h2>
           </div>
-          <div className="partners-content">
-            <p>{t('about.partnersText')}</p>
-            <ul className="partners-list">
-              {t('about.partnersList', { returnObjects: true }).map((item, index) => (
+          <div className="network-content">
+            <p>{t('about.networkText')}</p>
+            <ul className="network-list">
+              {t('about.networkList', { returnObjects: true }).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Downloads Section */}
+      <section className="downloads-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>{t('about.downloadsTitle')}</h2>
+          </div>
+          <div className="downloads-content">
+            <ul className="downloads-list">
+              {t('about.downloadsList', { returnObjects: true }).map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>

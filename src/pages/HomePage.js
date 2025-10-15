@@ -1,10 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import CountdownTimer from '../components/CountdownTimer';
 import './HomePage.css';
 
 const HomePage = () => {
   const { t } = useTranslation();
+
+  // État pour le slider hero
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Slides du hero avec traductions
+  const heroSlides = [
+    {
+      id: 1,
+      title: t('hero.slide1.title'),
+      subtitle: t('hero.slide1.subtitle'),
+      image: "/images/hero-slide-1.jpg",
+      cta: t('hero.slide1.cta')
+    },
+    {
+      id: 2,
+      title: t('hero.slide2.title'),
+      subtitle: t('hero.slide2.subtitle'),
+      image: "/images/hero-slide-2.jpg",
+      cta: t('hero.slide2.cta')
+    },
+    {
+      id: 3,
+      title: t('hero.slide3.title'),
+      subtitle: t('hero.slide3.subtitle'),
+      image: "/images/hero-slide-3.jpg",
+      cta: t('hero.slide3.cta')
+    },
+    {
+      id: 4,
+      title: t('hero.slide4.title'),
+      subtitle: t('hero.slide4.subtitle'),
+      image: "/images/hero-slide-4.jpg",
+      cta: t('hero.slide4.cta')
+    }
+  ];
 
   // Chiffres clés avec animation
   const [keyFigures, setKeyFigures] = useState({
@@ -14,13 +49,23 @@ const HomePage = () => {
     resources: 0
   });
 
-  const targetFigures = {
+  const targetFigures = useMemo(() => ({
     members: 150,
     projects: 25,
     events: 12,
     resources: 45
-  };
+  }), []);
 
+  // Auto-slider pour le hero
+  useEffect(() => {
+    const sliderInterval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % heroSlides.length);
+    }, 5000); // Change de slide toutes les 5 secondes
+
+    return () => clearInterval(sliderInterval);
+  }, [heroSlides.length]);
+
+  // Animation des compteurs
   useEffect(() => {
     const animateCounters = () => {
       const duration = 2000; // 2 seconds
@@ -49,62 +94,147 @@ const HomePage = () => {
     // Démarrer l'animation après un délai
     const timer = setTimeout(animateCounters, 500);
     return () => clearTimeout(timer);
-  }, []);
+  }, [targetFigures]);
+
+  // Fonction pour changer de slide manuellement
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Fonction pour slide suivant/précédent
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + heroSlides.length) % heroSlides.length);
+  };
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-content">
-                  <div className="hero-text">
-                    <h1>{t('hero.title')}</h1>
-                    <p>
-                      {t('hero.subtitle')}
-                    </p>
-                    <div className="hero-buttons">
-                      <a href="/contact" className="btn btn-primary">{t('hero.becomeMember')}</a>
-                      <a href="/programs" className="btn btn-primary">{t('hero.discoverPrograms')}</a>
+      {/* Hero Slider Section */}
+      <section className="hero-slider-section">
+        <div className="hero-slider-container">
+          {heroSlides.map((slide, index) => (
+            <div 
+              key={slide.id}
+              className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+            >
+              <div className="hero-slide-bg">
+                <img src={slide.image} alt={slide.title} />
+                <div className="hero-slide-overlay"></div>
+              </div>
+              <div className="hero-slide-content">
+                <div className="container">
+                  <div className="hero-slide-text">
+                    <h1 className="hero-slide-title">{slide.title}</h1>
+                    <p className="hero-slide-subtitle">{slide.subtitle}</p>
+                    <div className="hero-slide-buttons">
+                      <a href="/contact" className="btn btn-hero-primary">
+                        {slide.cta}
+                      </a>
+                      <a href="/about" className="btn btn-hero-secondary">
+                        {t('hero.learnMore')}
+                      </a>
                     </div>
                   </div>
-            <div className="hero-image">
-              <img 
-                src="/images/green building.png" 
-                alt="Green Building" 
-                className="hero-building-image"
-              />
+                </div>
+              </div>
             </div>
+          ))}
+          
+          {/* Navigation du slider */}
+          <div className="hero-slider-nav">
+            <button className="slider-nav-btn prev" onClick={prevSlide}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button className="slider-nav-btn next" onClick={nextSlide}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Indicateurs du slider */}
+          <div className="hero-slider-indicators">
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                className={`slider-indicator ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
           </div>
         </div>
       </section>
 
 
 
+      {/* Section Images Défilantes */}
+      <section className="floating-images-section">
+        <div className="floating-images-container">
+          <div className="floating-image-track">
+            <div className="floating-image-item">
+              <div className="floating-icon">🏢</div>
+              <span>Bâtiments Verts</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">🌱</div>
+              <span>Écologie</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">⚡</div>
+              <span>Énergie</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">♻️</div>
+              <span>Recyclage</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">🌿</div>
+              <span>Nature</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">🏗️</div>
+              <span>Construction</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">💡</div>
+              <span>Innovation</span>
+            </div>
+            <div className="floating-image-item">
+              <div className="floating-icon">🌍</div>
+              <span>Durabilité</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Présentation rapide TGBC */}
       <section className="presentation-section">
         <div className="container">
           <div className="presentation-content">
             <div className="presentation-text">
-              <h2>À propos du TGBC</h2>
-              <p>
-                Le Tunisia Green Building Council est une organisation à but non lucratif 
-                dédiée à la promotion de la construction durable en Tunisie. Nous rassemblons 
-                les professionnels du secteur pour créer un écosystème vert et innovant.
+              <h2 className="section-title">{t('presentation.title')}</h2>
+              <p className="section-description">
+                {t('presentation.description')}
               </p>
-              <a href="/about" className="btn btn-outline">En savoir plus</a>
+              <a href="/about" className="btn btn-outline">{t('presentation.learnMore')}</a>
             </div>
             <div className="presentation-icons">
               <div className="icon-card">
                 <div className="icon">💡</div>
-                <h3>Innovation</h3>
+                <h3>{t('presentation.innovation')}</h3>
               </div>
               <div className="icon-card">
                 <div className="icon">🌱</div>
-                <h3>Durabilité</h3>
+                <h3>{t('presentation.sustainability')}</h3>
               </div>
               <div className="icon-card">
                 <div className="icon">🤝</div>
-                <h3>Communauté</h3>
+                <h3>{t('presentation.community')}</h3>
               </div>
             </div>
           </div>

@@ -64,8 +64,8 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link 
-                to="/members" 
-                className={`nav-link ${location.pathname === '/members' ? 'active' : ''}`}
+                to="/membership" 
+                className={`nav-link ${location.pathname === '/membership' ? 'active' : ''}`}
                 onClick={closeMenu}
               >
                 {t('header.membership')}
@@ -86,16 +86,16 @@ const Header = () => {
                 className={`nav-link ${location.pathname === '/events' ? 'active' : ''}`}
                 onClick={closeMenu}
               >
-                {t('header.agenda')}
+                {t('header.events')}
               </Link>
             </li>
             <li className="nav-item">
               <Link 
-                to="/resources" 
-                className={`nav-link ${location.pathname === '/resources' ? 'active' : ''}`}
+                to="/news" 
+                className={`nav-link ${location.pathname === '/news' ? 'active' : ''}`}
                 onClick={closeMenu}
               >
-                {t('header.resources')}
+                {t('header.news')}
               </Link>
             </li>
           </ul>

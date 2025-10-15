@@ -8,20 +8,38 @@ const frTranslations = {
     tgbc: "Le TGBC",
     membership: "Adhésion",
     programs: "Programmes",
-    agenda: "Agenda",
+    events: "Événements",
+    news: "Actualités",
     resources: "Ressources",
     becomeMember: "Devenir membre"
   },
   hero: {
-    title: "Construisons ensemble un avenir durable en Tunisie",
-    subtitle: "Le Tunisia Green Building Council promeut la construction écologique, développe un réseau professionnel dynamique et fournit des ressources essentielles pour transformer le secteur du bâtiment en Tunisie.",
-    becomeMember: "Devenir membre",
-    discoverPrograms: "Découvrir nos programmes"
+    slide1: {
+      title: "Soyez partie de la transition verte de la Tunisie",
+      subtitle: "Au Tunisia Green Building Council, nous nous engageons à conduire la transformation durable dans l'environnement bâti. Grâce à l'éducation, l'innovation et la collaboration, nous donnons aux professionnels, aux entreprises et aux communautés les moyens de construire des espaces plus intelligents, plus verts et plus sains.",
+      cta: "Rejoignez-nous"
+    },
+    slide2: {
+      title: "Votre rôle compte",
+      subtitle: "Que vous soyez expert ou que vous commenciez votre parcours vers la durabilité, votre rôle compte. Formons ensemble une Tunisie plus résiliente et éco-consciente.",
+      cta: "Découvrir nos programmes"
+    },
+    slide3: {
+      title: "Éducation & Innovation",
+      subtitle: "Grâce à des programmes éducatifs complets et à des solutions innovantes, nous construisons une communauté de leaders durables qui transforment l'environnement bâti de la Tunisie pour un meilleur avenir.",
+      cta: "En savoir plus"
+    },
+    slide4: {
+      title: "Partenariat & Collaboration",
+      subtitle: "Rejoignez notre réseau de professionnels engagés pour construire ensemble l'avenir durable de la Tunisie. Ensemble, nous créons des solutions innovantes pour un environnement bâti plus respectueux.",
+      cta: "Rejoindre le réseau"
+    },
+    learnMore: "En savoir plus"
   },
   presentation: {
     title: "À propos du TGBC",
-    description: "Le Tunisia Green Building Council est une organisation à but non lucratif dédiée à la promotion de la construction durable en Tunisie. Nous rassemblons les professionnels du secteur pour créer un écosystème vert et innovant.",
-    learnMore: "En savoir plus",
+    description: "Le Tunisia Green Building Council (TGBC) œuvre pour un avenir durable en promouvant la construction écologique en Tunisie. À travers ses programmes, ses formations et ses partenariats, le TGBC encourage l'innovation, l'efficacité énergétique et le respect de l'environnement dans le secteur du bâtiment.",
+    learnMore: "En savoir plus sur le TGBC",
     innovation: "Innovation",
     sustainability: "Durabilité",
     community: "Communauté"
@@ -55,16 +73,143 @@ const frTranslations = {
     register: "S'inscrire"
   },
   programs: {
-    title: "Programmes & Initiatives",
-    discover: "Découvrir nos programmes",
-    certifications: "Certifications",
-    certificationsDesc: "Programmes de certification pour les bâtiments verts et les professionnels",
-    training: "Formations",
-    trainingDesc: "Ateliers et formations spécialisées en construction durable",
-    tools: "Outils pratiques",
-    toolsDesc: "Guides et outils pour la mise en œuvre de projets durables",
-    pilotProjects: "Projets pilotes",
-    pilotDesc: "Accompagnement de projets innovants et durables"
+    heroTitle: "Nos Programmes pour un Bâtiment Durable",
+    heroDescription: "Le Tunisia Green Building Council (TGBC) développe des programmes visant à accélérer la transition vers des bâtiments écologiques, sains et économes en énergie. Ces initiatives s'adressent aux professionnels, aux institutions et aux citoyens qui souhaitent contribuer à un avenir durable.",
+    heroCta: "Découvrir nos initiatives",
+    axesTitle: "Les grands axes de nos programmes",
+    axesDescription: "Présentation synthétique des domaines dans lesquels le TGBC agit",
+    axesList: [
+      {
+        icon: "🏫",
+        title: "Construction durable",
+        description: "Promotion des pratiques de conception, construction et rénovation respectueuses de l'environnement."
+      },
+      {
+        icon: "💡",
+        title: "Efficacité énergétique",
+        description: "Accompagnement des acteurs du bâtiment pour réduire la consommation et optimiser les ressources."
+      },
+      {
+        icon: "🌱",
+        title: "Matériaux écologiques",
+        description: "Sensibilisation à l'usage de matériaux locaux, recyclables et à faible empreinte carbone."
+      },
+      {
+        icon: "🏙",
+        title: "Urbanisme durable",
+        description: "Intégration des principes d'écologie urbaine dans les projets d'aménagement du territoire."
+      },
+      {
+        icon: "🎓",
+        title: "Formation & certification",
+        description: "Développement des compétences à travers des formations, webinaires et certifications internationales."
+      },
+      {
+        icon: "🤝",
+        title: "Partenariats & plaidoyer",
+        description: "Collaboration avec les institutions, entreprises et ONG pour faire évoluer les politiques publiques."
+      }
+    ],
+    programsTitle: "Nos Programmes phares",
+    programsDescription: "Découvrez nos initiatives emblématiques du TGBC",
+    all: "Tous",
+    education: "Éducation",
+    training: "Formation",
+    research: "Recherche",
+    partnership: "Partenariat",
+    programsList: [
+      {
+        category: "education",
+        title: "Programme \"Green Education\"",
+        description: "Sensibiliser les étudiants et enseignants aux principes de la construction durable à travers des ateliers et des concours inter-universitaires.",
+        image: "https://via.placeholder.com/400x200?text=Green+Education",
+        link: "/programs/green-education",
+        cta: "En savoir plus"
+      },
+      {
+        category: "training",
+        title: "Programme \"TGBC Training Series\"",
+        description: "Cycle de formations certifiantes en partenariat avec des experts nationaux et internationaux pour professionnaliser les acteurs du bâtiment durable.",
+        image: "https://via.placeholder.com/400x200?text=Training+Series",
+        link: "/programs/training-series",
+        cta: "Voir le calendrier"
+      },
+      {
+        category: "partnership",
+        title: "Programme \"Green Cities Tunisia\"",
+        description: "Accompagner les municipalités dans l'intégration de solutions vertes et de stratégies bas carbone dans leurs projets urbains.",
+        image: "https://via.placeholder.com/400x200?text=Green+Cities",
+        link: "/programs/green-cities",
+        cta: "Découvrir le programme"
+      },
+      {
+        category: "research",
+        title: "Programme \"Innovation & Research Hub\"",
+        description: "Soutenir la recherche et l'innovation technologique dans les domaines de l'énergie, des matériaux et de l'architecture bioclimatique.",
+        image: "https://via.placeholder.com/400x200?text=Research+Hub",
+        link: "/programs/research-hub",
+        cta: "Rejoindre le réseau"
+      }
+    ],
+    impactTitle: "Impacts et résultats",
+    impactDescription: "Nos chiffres clés et indicateurs de performance",
+    professionals: "Professionnels formés",
+    projects: "Projets accompagnés",
+    activePrograms: "Programmes actifs",
+    buildings: "Bâtiments durables",
+    partnerships: "Partenariats",
+    ctaTitle: "Appel à participation",
+    ctaDescription: "Vous souhaitez contribuer à un projet, devenir partenaire ou lancer un programme avec le TGBC ?",
+    proposeCollaboration: "Proposer une collaboration",
+    becomeMember: "Devenir membre",
+    testimonialsTitle: "Témoignages & Partenaires",
+    testimonialsList: [
+      {
+        text: "Grâce aux programmes TGBC, notre entreprise a pu certifier ses premiers projets verts et améliorer significativement notre impact environnemental.",
+        name: "Ahmed Ben Ali",
+        position: "Directeur Technique",
+        company: "Constructa Tunisie"
+      },
+      {
+        text: "Les formations TGBC m'ont permis de développer mes compétences en construction durable et d'intégrer un réseau professionnel dynamique.",
+        name: "Fatma Khelil",
+        position: "Architecte",
+        company: "Studio Vert"
+      },
+      {
+        text: "Le programme Green Cities nous a accompagnés dans la mise en place de solutions durables pour notre municipalité.",
+        name: "Mohamed Trabelsi",
+        position: "Maire",
+        company: "Municipalité de Sousse"
+      }
+    ],
+    partnersTitle: "Nos Partenaires",
+    partnersList: [
+      {
+        name: "BERD",
+        logo: "https://via.placeholder.com/150x80?text=BERD"
+      },
+      {
+        name: "IFC",
+        logo: "https://via.placeholder.com/150x80?text=IFC"
+      },
+      {
+        name: "GIZ",
+        logo: "https://via.placeholder.com/150x80?text=GIZ"
+      },
+      {
+        name: "Ministère Environnement",
+        logo: "https://via.placeholder.com/150x80?text=Min+Env"
+      },
+      {
+        name: "Université Tunis",
+        logo: "https://via.placeholder.com/150x80?text=Univ+Tunis"
+      }
+    ],
+    linksTitle: "Liens transversaux",
+    linksDescription: "Consultez notre agenda pour découvrir les prochaines formations, conférences et actions liées à nos programmes.",
+    viewAgenda: "Voir l'agenda des événements",
+    accessResources: "Accéder aux ressources"
   },
   testimonials: {
     title: "Témoignages & Partenaires",
@@ -95,46 +240,180 @@ const frTranslations = {
     subtitle: "Notre nouveau site sera bientôt en ligne !"
   },
   about: {
-    heroTitle: "Tunisia Green Building Council",
-    heroSubtitle: "Le Tunisia Green Building Council est une organisation à but non lucratif dédiée à la promotion de la construction durable en Tunisie.",
-    visionTitle: "Notre Vision",
-    visionText: "Construire un avenir durable pour la Tunisie, où chaque bâtiment et chaque projet urbain respectent l'environnement, améliorent la qualité de vie et contribuent à la lutte contre le changement climatique.",
+    heroTitle: "À propos de TGBC",
+    heroSubtitle: "Construire aujourd'hui, penser demain.",
+    heroDescription: "Le Tunisia Green Building Council (TGBC) est une organisation à but non lucratif dédiée à la promotion du bâtiment durable en Tunisie. Nous rassemblons les acteurs du secteur de la construction, de l'ingénierie, de l'urbanisme et de l'environnement pour encourager des pratiques responsables, innovantes et respectueuses de la planète.",
     missionTitle: "Notre Mission",
-    missionText: "Le Tunisia Green Building Council (TGBC) œuvre pour :",
-    missionList: [
-      "Promouvoir la construction durable et l'efficacité énergétique dans le secteur du bâtiment.",
-      "Sensibiliser et former les acteurs publics, privés et académiques aux enjeux environnementaux.",
-      "Développer et adapter des outils de certification et de référence propres au contexte tunisien.",
-      "Créer une plateforme de collaboration entre professionnels, chercheurs, institutions et citoyens.",
-      "Accompagner la Tunisie dans sa transition vers une économie bas carbone."
+    missionText: "Promouvoir une culture du bâtiment durable en Tunisie en sensibilisant, formant, et accompagnant les acteurs publics et privés dans la transition vers des constructions écologiques, efficaces et saines.",
+    visionTitle: "Notre Vision",
+    visionText: "Une Tunisie où chaque bâtiment contribue positivement à l'environnement, à la santé publique, et au développement économique durable.",
+    objectivesTitle: "Nos Objectifs",
+    objectivesList: [
+      "Favoriser l'adoption des normes et labels de construction durable (ex : LEED, EDGE, etc.)",
+      "Sensibiliser les professionnels et le grand public à l'importance du développement durable dans le bâtiment",
+      "Développer des partenariats nationaux et internationaux",
+      "Accompagner les projets de construction dans l'intégration de solutions durables",
+      "Contribuer aux politiques publiques et à la réglementation environnementale"
     ],
     valuesTitle: "Nos Valeurs",
-    innovation: "Innovation",
-    innovationDesc: "Encourager les nouvelles pratiques et technologies écologiques.",
-    integrity: "Intégrité",
-    integrityDesc: "Agir avec transparence et responsabilité.",
-    collaboration: "Collaboration",
-    collaborationDesc: "Fédérer les acteurs du secteur autour d'objectifs communs.",
     sustainability: "Durabilité",
-    sustainabilityDesc: "Assurer une performance environnementale, sociale et économique à long terme.",
-    historyTitle: "Notre Histoire",
-    historyText1: "Fondé en 2012, le Tunisia Green Building Council est né de l'initiative d'architectes, d'ingénieurs, d'universitaires et d'écologistes tunisiens.",
-    historyText2: "Depuis sa création, le TGBC s'impose comme un acteur majeur dans la promotion de la construction respectueuse de l'environnement, en s'inspirant des meilleures pratiques internationales tout en tenant compte des spécificités locales.",
-    governanceTitle: "Gouvernance et Équipe",
-    governanceText1: "Le TGBC repose sur une équipe pluridisciplinaire composée de professionnels du bâtiment, d'experts en durabilité, de chercheurs et de représentants institutionnels.",
-    governanceText2: "Le Conseil est piloté par un bureau exécutif, épaulé par des commissions techniques et scientifiques qui assurent la pertinence et la qualité des initiatives mises en œuvre.",
-    partnersTitle: "Nos Partenaires",
-    partnersText: "Le TGBC collabore avec :",
-    partnersList: [
-      "Les institutions publiques (ministères, municipalités, agences nationales).",
-      "Les organisations professionnelles du bâtiment et de l'énergie.",
-      "Les universités et centres de recherche.",
-      "Les organisations internationales engagées dans la durabilité."
+    sustainabilityDesc: "Agir pour les générations futures",
+    innovation: "Innovation",
+    innovationDesc: "Encourager les solutions nouvelles et efficaces",
+    collaboration: "Collaboration",
+    collaborationDesc: "Travailler ensemble pour un impact réel",
+    transparency: "Transparence",
+    transparencyDesc: "Garantir l'intégrité de nos actions",
+    responsibility: "Responsabilité",
+    responsibilityDesc: "Intégrer les enjeux sociaux et environnementaux dans chaque projet",
+    teamTitle: "Notre Équipe",
+    teamText: "Une équipe pluridisciplinaire de professionnels engagés : architectes, ingénieurs, experts en énergie, urbanistes, juristes et consultants environnementaux.",
+    foundersTitle: "Nos Membres Fondateurs",
+    foundersText: "TGBC a été fondé par un collectif de professionnels tunisiens partageant une même conviction : il est temps d'agir localement pour bâtir durablement.",
+    networkTitle: "Notre Réseau",
+    networkText: "TGBC est en lien avec plusieurs initiatives régionales et internationales :",
+    networkList: [
+      "World Green Building Council",
+      "GBCI (Green Business Certification Inc.)",
+      "Universités, centres de recherche et institutions publiques tunisiennes",
+      "ONG locales et internationales"
+    ],
+    downloadsTitle: "Téléchargements / Liens Utiles",
+    downloadsList: [
+      "Brochure de présentation (PDF)",
+      "Rapport d'activités",
+      "Charte des membres"
     ],
     contactTitle: "Contact",
     address: "Adresse du siège (à préciser)",
     email: "Email : contact@tgbc.org",
     social: "Suivez-nous sur : LinkedIn | Facebook | Twitter"
+  },
+  membership: {
+    heroTitle: "Rejoindre le TGBC",
+    heroSubtitle: "Rejoignez le mouvement du bâtiment durable en Tunisie.",
+    heroDescription: "En devenant membre du TGBC, vous intégrez un réseau national et international d'acteurs engagés pour un avenir plus vert. Ensemble, nous bâtissons des solutions concrètes pour réduire l'impact environnemental du secteur de la construction.",
+    heroDetails: "Devenir membre du Tunisia Green Building Council (TGBC), c'est rejoindre un réseau national en pleine expansion qui rassemble plus d'une centaine d'acteurs de la chaîne de valeur du bâtiment durable : architectes, ingénieurs, promoteurs, bureaux d'études, institutions publiques, industriels, établissements d'enseignement, ONG et médias spécialisés. L'adhésion au TGBC offre à ses membres un accès privilégié à des ressources techniques, des formations spécialisées, des événements exclusifs et des opportunités de collaboration avec des experts du développement durable. Elle permet également de renforcer la visibilité des entreprises et des professionnels engagés, d'accroître leur crédibilité auprès des décideurs et partenaires, et de valoriser leurs initiatives environnementales à travers les canaux de communication du TGBC. C'est un véritable levier pour intégrer les meilleures pratiques du bâtiment vert et contribuer activement à la transition écologique du secteur en Tunisie.",
+    cta: "Je deviens membre",
+    whyJoinTitle: "Pourquoi devenir membre ?",
+    communityTitle: "Une communauté engagée",
+    communityDesc: "Rejoignez un réseau dynamique regroupant architectes, ingénieurs, promoteurs, chercheurs, collectivités et institutions partageant une même vision du développement durable.",
+    knowledgeTitle: "Un accès privilégié à la connaissance",
+    knowledgeDesc: "Profitez de formations, conférences et ressources exclusives sur les normes, certifications et innovations en matière de construction écologique.",
+    collaborationTitle: "Des opportunités de collaboration",
+    collaborationDesc: "Participez à des projets pilotes, à des groupes de travail thématiques et à des initiatives nationales et régionales soutenues par le TGBC et ses partenaires internationaux.",
+    visibilityTitle: "Visibilité et reconnaissance",
+    visibilityDesc: "Bénéficiez d'une reconnaissance officielle en tant qu'acteur engagé dans le développement durable et valorisez vos projets à travers nos médias et événements.",
+    categoriesTitle: "Les catégories d'adhésion",
+    categoriesDesc: "Chaque acteur du secteur peut trouver sa place au sein du TGBC. Les adhésions sont ouvertes aux personnes physiques et morales selon plusieurs formules adaptées.",
+    individualTitle: "Membre individuel",
+    individualPrice: "150 DT",
+    individualTarget: "Architectes, ingénieurs, chercheurs, étudiants",
+    individualBenefits: [
+      "Accès aux événements",
+      "Formations et ressources en ligne",
+      "Réseau professionnel",
+      "Newsletter exclusive"
+    ],
+    companyTitle: "Entreprise",
+    companyPrice: "800 DT",
+    companyTarget: "Bureaux d'études, promoteurs, industriels, fournisseurs",
+    companyBenefits: [
+      "Participation aux groupes de travail",
+      "Visibilité sur le site et médias du TGBC",
+      "Accès aux projets pilotes",
+      "Conseil prioritaire"
+    ],
+    institutionTitle: "Institution / ONG",
+    institutionPrice: "500 DT",
+    institutionTarget: "Collectivités locales, associations, universités",
+    institutionBenefits: [
+      "Partenariats",
+      "Participation aux projets collectifs",
+      "Accès aux ressources techniques",
+      "Collaboration internationale"
+    ],
+    studentTitle: "Étudiant",
+    studentPrice: "50 DT",
+    studentTarget: "Étudiants en architecture, ingénierie ou environnement",
+    studentBenefits: [
+      "Accès gratuit aux webinaires",
+      "Tarifs réduits sur les formations",
+      "Ressources pédagogiques",
+      "Mentorat professionnel"
+    ],
+    memberBenefitsTitle: "Avantages réservés aux membres",
+    trainingTitle: "Formations & certifications",
+    trainingDesc: "Réductions sur les formations TGBC et sur les programmes internationaux partenaires (LEED, EDGE, BREEAM, etc.).",
+    communicationTitle: "Visibilité & communication",
+    communicationDesc: "Mise en avant sur le site TGBC, dans la newsletter, et lors des événements nationaux et internationaux.",
+    participationTitle: "Participation active",
+    participationDesc: "Accès à des commissions techniques, groupes de réflexion et projets pilotes autour du bâtiment vert.",
+    supportTitle: "Accompagnement",
+    supportDesc: "Conseil prioritaire dans les démarches de certification environnementale ou de performance énergétique.",
+    howToJoinTitle: "Comment adhérer ?",
+    step1Title: "Remplissez le formulaire",
+    step1Desc: "Remplissez le formulaire d'adhésion en ligne",
+    step1Cta: "Formulaire d'adhésion",
+    step2Title: "Envoyez votre dossier",
+    step2Desc: "Envoyez votre profil et justificatifs",
+    step3Title: "Effectuez le paiement",
+    step3Desc: "Paiement de la cotisation annuelle par virement ou chèque",
+    step4Title: "Recevez vos accès",
+    step4Desc: "Certificat de membre et accès à l'espace réservé",
+    memberSpaceTitle: "Espace membre",
+    memberSpaceDesc: "Un espace sécurisé réservé aux membres permet d'accéder aux ressources techniques, à la documentation, aux webinaires, et à la communauté TGBC.",
+    memberSpaceCta: "Accéder à mon espace membre",
+    resources: "Ressources techniques",
+    documentation: "Documentation",
+    webinars: "Webinaires",
+    community: "Communauté TGBC",
+    finalCtaTitle: "Ensemble, faisons du bâtiment durable la norme en Tunisie.",
+    finalCtaDesc: "Adhérez dès aujourd'hui au TGBC et contribuez au changement.",
+    finalCtaButton: "Je deviens membre du TGBC"
+  },
+  events: {
+    heroTitle: "Ensemble pour un avenir durable",
+    heroSubtitle: "Retrouvez tous les événements, formations et rencontres organisés par le TGBC pour promouvoir le bâtiment vert en Tunisie.",
+    heroCta: "Voir le calendrier complet",
+    calendarTitle: "Calendrier des événements",
+    calendarDescription: "Découvrez tous nos événements, formations et rencontres pour développer vos compétences en construction durable.",
+    filterBy: "Filtrer par",
+    all: "Tous",
+    conferences: "Conférences",
+    trainings: "Formations",
+    workshops: "Ateliers",
+    webinars: "Webinaires",
+    exhibitions: "Salons",
+    register: "Je m'inscris",
+    fullProgram: "Programme complet",
+    loadMore: "Voir plus d'événements",
+    newsletterTitle: "Restez informé de nos événements",
+    newsletterDescription: "Recevez nos dernières actualités et invitations aux événements directement dans votre boîte mail.",
+    emailPlaceholder: "Votre adresse email",
+    subscribe: "S'abonner"
+  },
+  news: {
+    heroTitle: "Actualités & Blog",
+    heroSubtitle: "Découvrez les dernières actualités, analyses et expertises du secteur du bâtiment durable en Tunisie.",
+    articles: "Articles",
+    experts: "Experts",
+    categories: "Catégories",
+    latestArticles: "Derniers articles",
+    articlesDescription: "Restez informé des dernières tendances et innovations en construction durable.",
+    filterBy: "Filtrer par",
+    all: "Tous",
+    news: "Actualités",
+    training: "Formations",
+    innovation: "Innovation",
+    guides: "Guides",
+    caseStudies: "Études de cas",
+    readMore: "Lire la suite",
+    loadMore: "Voir plus d'articles",
+    newsletterTitle: "Restez informé de nos actualités",
+    newsletterDescription: "Recevez nos derniers articles et analyses directement dans votre boîte mail.",
+    emailPlaceholder: "Votre adresse email",
+    subscribe: "S'abonner"
   },
   contact: {
     title: "Contactez-nous",
@@ -179,20 +458,38 @@ const enTranslations = {
     tgbc: "About TGBC",
     membership: "Membership",
     programs: "Programs",
-    agenda: "Agenda",
+    events: "Events",
+    news: "News",
     resources: "Resources",
     becomeMember: "Become a member"
   },
   hero: {
-    title: "Let's build a sustainable future together in Tunisia",
-    subtitle: "The Tunisia Green Building Council promotes ecological construction, develops a dynamic professional network and provides essential resources to transform the building sector in Tunisia.",
-    becomeMember: "Become a member",
-    discoverPrograms: "Discover our programs"
+    slide1: {
+      title: "Be Part of Tunisia's Green Transition",
+      subtitle: "At Tunisia Green Building Council, we are committed to driving sustainable transformation across the built environment. Through education, innovation, and collaboration, we empower professionals, businesses, and communities to build smarter, greener, and healthier spaces.",
+      cta: "Join Us"
+    },
+    slide2: {
+      title: "Your Role Matters",
+      subtitle: "Whether you're an expert or just beginning your sustainability journey, your role matters. Let's shape a more resilient and eco-conscious Tunisia — together.",
+      cta: "Discover Programs"
+    },
+    slide3: {
+      title: "Education & Innovation",
+      subtitle: "Through comprehensive education programs and innovative solutions, we're building a community of sustainability leaders who are transforming Tunisia's built environment for a better tomorrow.",
+      cta: "Learn More"
+    },
+    slide4: {
+      title: "Partnership & Collaboration",
+      subtitle: "Join our network of committed professionals to build together Tunisia's sustainable future. Together, we create innovative solutions for a more respectful built environment.",
+      cta: "Join the network"
+    },
+    learnMore: "Learn More"
   },
   presentation: {
     title: "About TGBC",
-    description: "The Tunisia Green Building Council is a non-profit organization dedicated to promoting sustainable construction in Tunisia. We bring together professionals in the sector to create a green and innovative ecosystem.",
-    learnMore: "Learn more",
+    description: "The Tunisia Green Building Council (TGBC) works for a sustainable future by promoting ecological construction in Tunisia. Through its programs, training and partnerships, TGBC encourages innovation, energy efficiency and environmental respect in the building sector.",
+    learnMore: "Learn more about TGBC",
     innovation: "Innovation",
     sustainability: "Sustainability",
     community: "Community"
@@ -226,16 +523,143 @@ const enTranslations = {
     register: "Register"
   },
   programs: {
-    title: "Programs & Initiatives",
-    discover: "Discover our programs",
-    certifications: "Certifications",
-    certificationsDesc: "Certification programs for green buildings and professionals",
+    heroTitle: "Our Programs for Sustainable Building",
+    heroDescription: "The Tunisia Green Building Council (TGBC) develops programs aimed at accelerating the transition to ecological, healthy and energy-efficient buildings. These initiatives are aimed at professionals, institutions and citizens who want to contribute to a sustainable future.",
+    heroCta: "Discover our initiatives",
+    axesTitle: "The main axes of our programs",
+    axesDescription: "Synthetic presentation of the areas in which TGBC operates",
+    axesList: [
+      {
+        icon: "🏫",
+        title: "Sustainable construction",
+        description: "Promotion of design, construction and renovation practices that respect the environment."
+      },
+      {
+        icon: "💡",
+        title: "Energy efficiency",
+        description: "Support for building stakeholders to reduce consumption and optimize resources."
+      },
+      {
+        icon: "🌱",
+        title: "Ecological materials",
+        description: "Awareness of the use of local, recyclable materials with low carbon footprint."
+      },
+      {
+        icon: "🏙",
+        title: "Sustainable urban planning",
+        description: "Integration of urban ecology principles into territorial development projects."
+      },
+      {
+        icon: "🎓",
+        title: "Training & certification",
+        description: "Skills development through training, webinars and international certifications."
+      },
+      {
+        icon: "🤝",
+        title: "Partnerships & advocacy",
+        description: "Collaboration with institutions, companies and NGOs to evolve public policies."
+      }
+    ],
+    programsTitle: "Our flagship programs",
+    programsDescription: "Discover our emblematic TGBC initiatives",
+    all: "All",
+    education: "Education",
     training: "Training",
-    trainingDesc: "Workshops and specialized training in sustainable construction",
-    tools: "Practical tools",
-    toolsDesc: "Guides and tools for implementing sustainable projects",
-    pilotProjects: "Pilot projects",
-    pilotDesc: "Support for innovative and sustainable projects"
+    research: "Research",
+    partnership: "Partnership",
+    programsList: [
+      {
+        category: "education",
+        title: "\"Green Education\" Program",
+        description: "Sensitize students and teachers to sustainable construction principles through workshops and inter-university competitions.",
+        image: "https://via.placeholder.com/400x200?text=Green+Education",
+        link: "/programs/green-education",
+        cta: "Learn more"
+      },
+      {
+        category: "training",
+        title: "\"TGBC Training Series\" Program",
+        description: "Certifying training cycle in partnership with national and international experts to professionalize sustainable building stakeholders.",
+        image: "https://via.placeholder.com/400x200?text=Training+Series",
+        link: "/programs/training-series",
+        cta: "View calendar"
+      },
+      {
+        category: "partnership",
+        title: "\"Green Cities Tunisia\" Program",
+        description: "Accompany municipalities in integrating green solutions and low-carbon strategies into their urban projects.",
+        image: "https://via.placeholder.com/400x200?text=Green+Cities",
+        link: "/programs/green-cities",
+        cta: "Discover the program"
+      },
+      {
+        category: "research",
+        title: "\"Innovation & Research Hub\" Program",
+        description: "Support research and technological innovation in energy, materials and bioclimatic architecture.",
+        image: "https://via.placeholder.com/400x200?text=Research+Hub",
+        link: "/programs/research-hub",
+        cta: "Join the network"
+      }
+    ],
+    impactTitle: "Impacts and results",
+    impactDescription: "Our key figures and performance indicators",
+    professionals: "Trained professionals",
+    projects: "Accompanied projects",
+    activePrograms: "Active programs",
+    buildings: "Sustainable buildings",
+    partnerships: "Partnerships",
+    ctaTitle: "Call for participation",
+    ctaDescription: "Do you want to contribute to a project, become a partner or launch a program with TGBC?",
+    proposeCollaboration: "Propose a collaboration",
+    becomeMember: "Become a member",
+    testimonialsTitle: "Testimonials & Partners",
+    testimonialsList: [
+      {
+        text: "Thanks to TGBC programs, our company was able to certify its first green projects and significantly improve our environmental impact.",
+        name: "Ahmed Ben Ali",
+        position: "Technical Director",
+        company: "Constructa Tunisia"
+      },
+      {
+        text: "TGBC training allowed me to develop my skills in sustainable construction and integrate a dynamic professional network.",
+        name: "Fatma Khelil",
+        position: "Architect",
+        company: "Studio Vert"
+      },
+      {
+        text: "The Green Cities program accompanied us in implementing sustainable solutions for our municipality.",
+        name: "Mohamed Trabelsi",
+        position: "Mayor",
+        company: "Sousse Municipality"
+      }
+    ],
+    partnersTitle: "Our Partners",
+    partnersList: [
+      {
+        name: "EBRD",
+        logo: "https://via.placeholder.com/150x80?text=EBRD"
+      },
+      {
+        name: "IFC",
+        logo: "https://via.placeholder.com/150x80?text=IFC"
+      },
+      {
+        name: "GIZ",
+        logo: "https://via.placeholder.com/150x80?text=GIZ"
+      },
+      {
+        name: "Environment Ministry",
+        logo: "https://via.placeholder.com/150x80?text=Min+Env"
+      },
+      {
+        name: "Tunis University",
+        logo: "https://via.placeholder.com/150x80?text=Univ+Tunis"
+      }
+    ],
+    linksTitle: "Cross-cutting links",
+    linksDescription: "Check our agenda to discover upcoming training, conferences and actions related to our programs.",
+    viewAgenda: "View events calendar",
+    accessResources: "Access resources"
   },
   testimonials: {
     title: "Testimonials & Partners",
@@ -266,46 +690,180 @@ const enTranslations = {
     subtitle: "Our new site will be online soon!"
   },
   about: {
-    heroTitle: "Tunisia Green Building Council",
-    heroSubtitle: "The Tunisia Green Building Council is a non-profit organization dedicated to promoting sustainable construction in Tunisia.",
-    visionTitle: "Our Vision",
-    visionText: "Building a sustainable future for Tunisia, where every building and every urban project respects the environment, improves quality of life and contributes to the fight against climate change.",
+    heroTitle: "About TGBC",
+    heroSubtitle: "Building today, thinking tomorrow.",
+    heroDescription: "The Tunisia Green Building Council (TGBC) is a non-profit organization dedicated to promoting sustainable building in Tunisia. We bring together actors from the construction, engineering, urban planning and environment sectors to encourage responsible, innovative and planet-friendly practices.",
     missionTitle: "Our Mission",
-    missionText: "The Tunisia Green Building Council (TGBC) works to:",
-    missionList: [
-      "Promote sustainable construction and energy efficiency in the building sector.",
-      "Raise awareness and train public, private and academic actors on environmental issues.",
-      "Develop and adapt certification and reference tools specific to the Tunisian context.",
-      "Create a collaboration platform between professionals, researchers, institutions and citizens.",
-      "Support Tunisia in its transition to a low-carbon economy."
+    missionText: "Promote a culture of sustainable building in Tunisia by raising awareness, training, and supporting public and private actors in the transition to ecological, efficient and healthy constructions.",
+    visionTitle: "Our Vision",
+    visionText: "A Tunisia where every building contributes positively to the environment, public health, and sustainable economic development.",
+    objectivesTitle: "Our Objectives",
+    objectivesList: [
+      "Promote the adoption of sustainable construction standards and labels (e.g., LEED, EDGE, etc.)",
+      "Raise awareness among professionals and the general public about the importance of sustainable development in building",
+      "Develop national and international partnerships",
+      "Support construction projects in integrating sustainable solutions",
+      "Contribute to public policies and environmental regulations"
     ],
     valuesTitle: "Our Values",
-    innovation: "Innovation",
-    innovationDesc: "Encourage new ecological practices and technologies.",
-    integrity: "Integrity",
-    integrityDesc: "Act with transparency and responsibility.",
-    collaboration: "Collaboration",
-    collaborationDesc: "Federate sector actors around common objectives.",
     sustainability: "Sustainability",
-    sustainabilityDesc: "Ensure long-term environmental, social and economic performance.",
-    historyTitle: "Our History",
-    historyText1: "Founded in 2012, the Tunisia Green Building Council was born from the initiative of Tunisian architects, engineers, academics and environmentalists.",
-    historyText2: "Since its creation, TGBC has established itself as a major player in promoting environmentally friendly construction, drawing inspiration from international best practices while taking into account local specificities.",
-    governanceTitle: "Governance and Team",
-    governanceText1: "TGBC relies on a multidisciplinary team made up of building professionals, sustainability experts, researchers and institutional representatives.",
-    governanceText2: "The Council is led by an executive board, supported by technical and scientific commissions that ensure the relevance and quality of the initiatives implemented.",
-    partnersTitle: "Our Partners",
-    partnersText: "TGBC collaborates with:",
-    partnersList: [
-      "Public institutions (ministries, municipalities, national agencies).",
-      "Professional organizations in construction and energy.",
-      "Universities and research centers.",
-      "International organizations committed to sustainability."
+    sustainabilityDesc: "Acting for future generations",
+    innovation: "Innovation",
+    innovationDesc: "Encouraging new and effective solutions",
+    collaboration: "Collaboration",
+    collaborationDesc: "Working together for real impact",
+    transparency: "Transparency",
+    transparencyDesc: "Ensuring the integrity of our actions",
+    responsibility: "Responsibility",
+    responsibilityDesc: "Integrating social and environmental issues into every project",
+    teamTitle: "Our Team",
+    teamText: "A multidisciplinary team of committed professionals: architects, engineers, energy experts, urban planners, lawyers and environmental consultants.",
+    foundersTitle: "Our Founding Members",
+    foundersText: "TGBC was founded by a collective of Tunisian professionals sharing the same conviction: it's time to act locally to build sustainably.",
+    networkTitle: "Our Network",
+    networkText: "TGBC is connected to several regional and international initiatives:",
+    networkList: [
+      "World Green Building Council",
+      "GBCI (Green Business Certification Inc.)",
+      "Tunisian universities, research centers and public institutions",
+      "Local and international NGOs"
+    ],
+    downloadsTitle: "Downloads / Useful Links",
+    downloadsList: [
+      "Presentation brochure (PDF)",
+      "Activity report",
+      "Members charter"
     ],
     contactTitle: "Contact",
     address: "Headquarters address (to be specified)",
     email: "Email: contact@tgbc.org",
     social: "Follow us on: LinkedIn | Facebook | Twitter"
+  },
+  membership: {
+    heroTitle: "Join TGBC",
+    heroSubtitle: "Join the sustainable building movement in Tunisia.",
+    heroDescription: "By becoming a TGBC member, you join a national and international network of actors committed to a greener future. Together, we build concrete solutions to reduce the environmental impact of the construction sector.",
+    heroDetails: "Becoming a member of the Tunisia Green Building Council (TGBC) means joining a rapidly expanding national network that brings together more than a hundred actors from the sustainable building value chain: architects, engineers, developers, engineering firms, public institutions, industrialists, educational establishments, NGOs and specialized media. TGBC membership offers its members privileged access to technical resources, specialized training, exclusive events and collaboration opportunities with sustainable development experts. It also helps strengthen the visibility of committed companies and professionals, increase their credibility with decision-makers and partners, and showcase their environmental initiatives through TGBC communication channels. It's a real lever for integrating best practices in green building and actively contributing to the ecological transition of the sector in Tunisia.",
+    cta: "I become a member",
+    whyJoinTitle: "Why become a member?",
+    communityTitle: "An engaged community",
+    communityDesc: "Join a dynamic network bringing together architects, engineers, developers, researchers, communities and institutions sharing the same vision of sustainable development.",
+    knowledgeTitle: "Privileged access to knowledge",
+    knowledgeDesc: "Benefit from exclusive training, conferences and resources on standards, certifications and innovations in ecological construction.",
+    collaborationTitle: "Collaboration opportunities",
+    collaborationDesc: "Participate in pilot projects, thematic working groups and national and regional initiatives supported by TGBC and its international partners.",
+    visibilityTitle: "Visibility and recognition",
+    visibilityDesc: "Benefit from official recognition as an actor committed to sustainable development and showcase your projects through our media and events.",
+    categoriesTitle: "Membership categories",
+    categoriesDesc: "Every sector actor can find their place within TGBC. Memberships are open to individuals and legal entities according to several adapted formulas.",
+    individualTitle: "Individual member",
+    individualPrice: "150 DT",
+    individualTarget: "Architects, engineers, researchers, students",
+    individualBenefits: [
+      "Access to events",
+      "Online training and resources",
+      "Professional network",
+      "Exclusive newsletter"
+    ],
+    companyTitle: "Company",
+    companyPrice: "800 DT",
+    companyTarget: "Engineering firms, developers, industrialists, suppliers",
+    companyBenefits: [
+      "Participation in working groups",
+      "Visibility on TGBC website and media",
+      "Access to pilot projects",
+      "Priority consultation"
+    ],
+    institutionTitle: "Institution / NGO",
+    institutionPrice: "500 DT",
+    institutionTarget: "Local communities, associations, universities",
+    institutionBenefits: [
+      "Partnerships",
+      "Participation in collective projects",
+      "Access to technical resources",
+      "International collaboration"
+    ],
+    studentTitle: "Student",
+    studentPrice: "50 DT",
+    studentTarget: "Students in architecture, engineering or environment",
+    studentBenefits: [
+      "Free access to webinars",
+      "Reduced rates on training",
+      "Educational resources",
+      "Professional mentoring"
+    ],
+    memberBenefitsTitle: "Benefits reserved for members",
+    trainingTitle: "Training & certifications",
+    trainingDesc: "Discounts on TGBC training and international partner programs (LEED, EDGE, BREEAM, etc.).",
+    communicationTitle: "Visibility & communication",
+    communicationDesc: "Highlighting on TGBC website, newsletter, and national and international events.",
+    participationTitle: "Active participation",
+    participationDesc: "Access to technical commissions, reflection groups and pilot projects around green building.",
+    supportTitle: "Support",
+    supportDesc: "Priority advice in environmental certification or energy performance procedures.",
+    howToJoinTitle: "How to join?",
+    step1Title: "Fill out the form",
+    step1Desc: "Fill out the online membership form",
+    step1Cta: "Membership form",
+    step2Title: "Send your file",
+    step2Desc: "Send your profile and supporting documents",
+    step3Title: "Make the payment",
+    step3Desc: "Annual membership fee payment by transfer or check",
+    step4Title: "Receive your access",
+    step4Desc: "Member certificate and access to reserved space",
+    memberSpaceTitle: "Member space",
+    memberSpaceDesc: "A secure space reserved for members allows access to technical resources, documentation, webinars, and the TGBC community.",
+    memberSpaceCta: "Access my member space",
+    resources: "Technical resources",
+    documentation: "Documentation",
+    webinars: "Webinars",
+    community: "TGBC community",
+    finalCtaTitle: "Together, let's make sustainable building the norm in Tunisia.",
+    finalCtaDesc: "Join TGBC today and contribute to change.",
+    finalCtaButton: "I become a TGBC member"
+  },
+  events: {
+    heroTitle: "Together for a sustainable future",
+    heroSubtitle: "Discover all the events, training sessions and meetings organized by TGBC to promote green building in Tunisia.",
+    heroCta: "View full calendar",
+    calendarTitle: "Events calendar",
+    calendarDescription: "Discover all our events, training sessions and meetings to develop your skills in sustainable construction.",
+    filterBy: "Filter by",
+    all: "All",
+    conferences: "Conferences",
+    trainings: "Training",
+    workshops: "Workshops",
+    webinars: "Webinars",
+    exhibitions: "Exhibitions",
+    register: "Register",
+    fullProgram: "Full program",
+    loadMore: "View more events",
+    newsletterTitle: "Stay informed about our events",
+    newsletterDescription: "Receive our latest news and event invitations directly in your mailbox.",
+    emailPlaceholder: "Your email address",
+    subscribe: "Subscribe"
+  },
+  news: {
+    heroTitle: "News & Blog",
+    heroSubtitle: "Discover the latest news, analysis and expertise in the sustainable building sector in Tunisia.",
+    articles: "Articles",
+    experts: "Experts",
+    categories: "Categories",
+    latestArticles: "Latest articles",
+    articlesDescription: "Stay informed about the latest trends and innovations in sustainable construction.",
+    filterBy: "Filter by",
+    all: "All",
+    news: "News",
+    training: "Training",
+    innovation: "Innovation",
+    guides: "Guides",
+    caseStudies: "Case studies",
+    readMore: "Read more",
+    loadMore: "View more articles",
+    newsletterTitle: "Stay informed about our news",
+    newsletterDescription: "Receive our latest articles and analysis directly in your mailbox.",
+    emailPlaceholder: "Your email address",
+    subscribe: "Subscribe"
   },
   contact: {
     title: "Contact us",
