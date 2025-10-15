@@ -1744,6 +1744,24 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-slide-title {
+    font-size: 3rem;
+  }
+  
+  .hero-slide-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .presentation-text h2 {
+    font-size: 2.2rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-content {
     gap: 3rem;
@@ -1952,6 +1970,53 @@
   
   .newsletter-text p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-slide-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-slide-subtitle {
+    font-size: 1rem;
+  }
+  
+  .presentation-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .container {
+    padding: 0 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .icon-card {
+    padding: 1rem;
+  }
+  
+  .figure-card {
+    padding: 1rem;
+  }
+  
+  .program-card {
+    padding: 1rem;
   }
 }
 

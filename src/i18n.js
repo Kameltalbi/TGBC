@@ -110,8 +110,31 @@ const frTranslations = {
         description: "Collaboration avec les institutions, entreprises et ONG pour faire évoluer les politiques publiques."
       }
     ],
-    programsTitle: "Nos Programmes phares",
-    programsDescription: "Découvrez nos initiatives emblématiques du TGBC",
+              programsTitle: "Nos Programmes phares",
+              programsDescription: "Découvrez nos initiatives emblématiques du TGBC",
+              featuredProgramsTitle: "Nos Programmes Phares",
+              featuredProgramsDescription: "Les programmes phares du Tunisia Green Building Council (TGBC) incarnent son engagement concret en faveur du bâtiment durable et de la transition écologique en Tunisie. Ils couvrent des domaines clés tels que la formation et la certification environnementale, la promotion des matériaux écologiques, la recherche sur l'efficacité énergétique, et l'accompagnement des collectivités locales dans la planification urbaine durable. À travers ces initiatives, le TGBC favorise la montée en compétence des professionnels, soutient l'innovation dans la construction et contribue à la diffusion d'une culture du développement durable à l'échelle nationale. Ces programmes constituent un levier essentiel pour accélérer la transformation du secteur et créer des villes plus vertes et résilientes.",
+              objectivesTitle: "Objectifs",
+              objectivesDescription: "Le cours d'introduction fournit des connaissances en durabilité aux participants non-techniques et aux professionnels de l'industrie qui souhaitent comprendre les bases de la rénovation des bâtiments et de l'efficacité énergétique dans la région du Golfe. L'atelier interactif est parfait pour ceux qui souhaitent acquérir une base solide de l'industrie de la rénovation des bâtiments.",
+              targetAudienceTitle: "Public Cible",
+              targetAudienceDescription: "Nos programmes s'adressent à un large éventail de professionnels et d'organisations engagés dans la construction durable. Que vous soyez architecte, ingénieur, promoteur immobilier, gestionnaire d'installations, représentant d'une collectivité locale ou d'une institution publique, nos formations et initiatives sont conçues pour répondre à vos besoins spécifiques. Nous accueillons également les propriétaires de bâtiments, les professionnels de l'hôtellerie, les bureaux d'études et les ONG qui souhaitent intégrer les principes du développement durable dans leurs projets. Aucune expérience préalable n'est requise, nos programmes s'adaptent à tous les niveaux de compétence.",
+              eligibilityTitle: "Éligibilité",
+              eligibilityDescription: "Il n'y a aucune expérience préalable ou qualification requise pour le cours et il convient aux professionnels de tous niveaux et à toute personne intéressée par la compréhension des fondamentaux de la rénovation des bâtiments.",
+              courseContentsTitle: "Contenu du Cours",
+              audienceCategories: [
+                {
+                  title: "Professionnels de l'industrie",
+                  items: ["Architectes", "Ingénieurs", "Promoteurs", "Bureaux d'études"]
+                },
+                {
+                  title: "Décideurs & Institutions",
+                  items: ["Collectivités locales", "Ministères", "Agences publiques", "ONG"]
+                },
+                {
+                  title: "Secteur privé",
+                  items: ["Propriétaires de bâtiments", "Gestionnaires d'installations", "Professionnels de l'hôtellerie"]
+                }
+              ],
     all: "Tous",
     education: "Éducation",
     training: "Formation",
@@ -342,6 +365,7 @@ const frTranslations = {
       "Ressources pédagogiques",
       "Mentorat professionnel"
     ],
+    joinNow: "Rejoindre maintenant",
     memberBenefitsTitle: "Avantages réservés aux membres",
     trainingTitle: "Formations & certifications",
     trainingDesc: "Réductions sur les formations TGBC et sur les programmes internationaux partenaires (LEED, EDGE, BREEAM, etc.).",
@@ -391,7 +415,18 @@ const frTranslations = {
     newsletterTitle: "Restez informé de nos événements",
     newsletterDescription: "Recevez nos dernières actualités et invitations aux événements directement dans votre boîte mail.",
     emailPlaceholder: "Votre adresse email",
-    subscribe: "S'abonner"
+    subscribe: "S'abonner",
+    viewFullCalendar: "Voir le calendrier complet",
+    fullCalendar: "Calendrier complet",
+    today: "Aujourd'hui",
+    month: "Mois",
+    year: "Année",
+    monthView: "Mois",
+    weekView: "Semaine",
+    upcomingEvents: "Événements à venir",
+    recentlyAdded: "Récemment ajoutés",
+    going: "participants",
+    spotsRemaining: "places restantes"
   },
   news: {
     heroTitle: "Actualités & Blog",
@@ -562,6 +597,29 @@ const enTranslations = {
     ],
     programsTitle: "Our flagship programs",
     programsDescription: "Discover our emblematic TGBC initiatives",
+    featuredProgramsTitle: "Our Flagship Programs",
+    featuredProgramsDescription: "The flagship programs of the Tunisia Green Building Council (TGBC) embody its concrete commitment to sustainable building and ecological transition in Tunisia. They cover key areas such as environmental training and certification, promotion of ecological materials, research on energy efficiency, and support for local communities in sustainable urban planning. Through these initiatives, TGBC promotes professional skills development, supports innovation in construction, and contributes to the dissemination of sustainable development culture at the national level. These programs constitute an essential lever to accelerate sector transformation and create greener and more resilient cities.",
+    objectivesTitle: "Objectives",
+    objectivesDescription: "The introductory course provides knowledge of sustainability to non-technical participants and industry professionals looking to understand the basics behind building retrofit and energy efficiency in the Gulf region. The interactive workshop is perfect for those wanting to gain a solid foundation of the building retrofit industry.",
+    targetAudienceTitle: "Target Audience",
+    targetAudienceDescription: "Our programs are designed for a wide range of professionals and organizations committed to sustainable construction. Whether you are an architect, engineer, real estate developer, facility manager, representative of a local authority or public institution, our training and initiatives are designed to meet your specific needs. We also welcome building owners, hospitality professionals, consulting firms and NGOs who want to integrate sustainable development principles into their projects. No prior experience is required, our programs adapt to all skill levels.",
+    eligibilityTitle: "Eligibility",
+    eligibilityDescription: "There is no prior experience or qualification required for the course and it is suitable for professionals of all levels and anyone interested in understanding the fundamentals of building retrofit.",
+    courseContentsTitle: "Course Contents",
+    audienceCategories: [
+      {
+        title: "Industry Professionals",
+        items: ["Architects", "Engineers", "Developers", "Consulting firms"]
+      },
+      {
+        title: "Decision Makers & Institutions",
+        items: ["Local authorities", "Ministries", "Public agencies", "NGOs"]
+      },
+      {
+        title: "Private Sector",
+        items: ["Building owners", "Facility managers", "Hospitality professionals"]
+      }
+    ],
     all: "All",
     education: "Education",
     training: "Training",
@@ -792,6 +850,7 @@ const enTranslations = {
       "Educational resources",
       "Professional mentoring"
     ],
+    joinNow: "Join now",
     memberBenefitsTitle: "Benefits reserved for members",
     trainingTitle: "Training & certifications",
     trainingDesc: "Discounts on TGBC training and international partner programs (LEED, EDGE, BREEAM, etc.).",
@@ -841,7 +900,18 @@ const enTranslations = {
     newsletterTitle: "Stay informed about our events",
     newsletterDescription: "Receive our latest news and event invitations directly in your mailbox.",
     emailPlaceholder: "Your email address",
-    subscribe: "Subscribe"
+    subscribe: "Subscribe",
+    viewFullCalendar: "View full calendar",
+    fullCalendar: "Full Calendar",
+    today: "Today",
+    month: "Month",
+    year: "Year",
+    monthView: "Month",
+    weekView: "Week",
+    upcomingEvents: "Upcoming Events",
+    recentlyAdded: "Recently Added",
+    going: "going",
+    spotsRemaining: "spots remaining"
   },
   news: {
     heroTitle: "News & Blog",

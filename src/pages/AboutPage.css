@@ -522,6 +522,21 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .about-hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .vision-text h2,
+  .mission-text h2 {
+    font-size: 2.2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .about-hero-content h1 {
     font-size: 2.5rem;
@@ -621,6 +636,37 @@
     min-width: 50px;
     font-size: 0.8rem;
     padding: 0.5rem 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .vision-text h2,
+  .mission-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 0 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .vision-card,
+  .mission-card,
+  .value-card,
+  .team-member {
+    padding: 1rem;
   }
 }
 

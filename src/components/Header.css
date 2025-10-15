@@ -264,6 +264,21 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+@media (max-width: 1200px) {
+  .nav-list {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .header-container {
     padding: 0.8rem 1rem;
@@ -372,5 +387,42 @@
   
   .logo-english {
     font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-container {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .logo-image {
+    height: 30px;
+  }
+  
+  .logo-acronym {
+    font-size: 0.9rem;
+  }
+  
+  .logo-arabic {
+    font-size: 0.5rem;
+  }
+  
+  .logo-english {
+    font-size: 0.4rem;
+  }
+  
+  .btn-primary {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .globe-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .globe-icon {
+    width: 18px;
+    height: 18px;
   }
 }

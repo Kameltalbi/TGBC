@@ -80,6 +80,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
+              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card featured">
@@ -96,6 +97,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
+              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card">
@@ -111,6 +113,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
+              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
             </div>
             
             <div className="category-card">
@@ -126,6 +129,7 @@ const MembershipPage = () => {
                   <li key={index}>{benefit}</li>
                 ))}
               </ul>
+              <button className="btn btn-primary category-btn">{t('membership.joinNow')}</button>
             </div>
           </div>
         </div>

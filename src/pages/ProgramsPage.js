@@ -73,40 +73,56 @@ const ProgramsPage = () => {
 
   return (
     <div className="programs-page">
-      {/* Hero Section */}
-      <section className="programs-hero">
-        <div className="hero-background">
-          <img src="/images/green building.png" alt="Bâtiments écologiques" />
-        </div>
-        <div className="hero-overlay"></div>
+      {/* Section 1: Introduction */}
+      <section className="programs-intro-section">
         <div className="container">
-          <div className="hero-content">
-            <h1>{t('programs.heroTitle')}</h1>
-            <p className="hero-description">
-              {t('programs.heroDescription')}
-            </p>
-            <a href="#programs" className="btn btn-hero">
-              {t('programs.heroCta')}
-            </a>
+          <div className="programs-intro-content">
+            <div className="programs-intro-text">
+              <h1>{t('programs.heroTitle')}</h1>
+              <p className="programs-intro-description">
+                {t('programs.heroDescription')}
+              </p>
+              <a href="#programs" className="btn btn-hero">
+                {t('programs.heroCta')}
+              </a>
+            </div>
+            <div className="programs-intro-image">
+              <img src="/images/programs-section-1.jpg" alt="Conférence TGBC" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Program Axes Section */}
-      <section className="program-axes-section">
+      {/* Objectives Section */}
+      <section className="objectives-section">
         <div className="container">
-          <div className="section-header">
-            <h2>{t('programs.axesTitle')}</h2>
-            <p>{t('programs.axesDescription')}</p>
+          <div className="objectives-content">
+            <div className="objectives-image">
+              <img src="/images/objectives.jpg" alt={t('programs.objectivesTitle')} />
+            </div>
+            <div className="objectives-text">
+              <h2>{t('programs.objectivesTitle')}</h2>
+              <p className="objectives-description">
+                {t('programs.objectivesDescription')}
+              </p>
+            </div>
           </div>
-          <div className="axes-grid">
-            {t('programs.axesList', { returnObjects: true }).map((axe, index) => (
-              <div key={index} className="axe-card fadeInUp" data-delay={`${index * 0.1}s`}>
-                <div className="axe-icon">{axe.icon}</div>
-                <h3>{axe.title}</h3>
-                <p>{axe.description}</p>
-              </div>
-            ))}
+        </div>
+      </section>
+
+      {/* Target Audience Section */}
+      <section className="target-audience-section">
+        <div className="container">
+          <div className="target-audience-content">
+            <div className="target-audience-text">
+              <h2>{t('programs.targetAudienceTitle')}</h2>
+              <p className="target-audience-description">
+                {t('programs.targetAudienceDescription')}
+              </p>
+            </div>
+            <div className="target-audience-image">
+              <img src="/images/target-audience.jpg" alt={t('programs.targetAudienceTitle')} />
+            </div>
           </div>
         </div>
       </section>
