@@ -476,6 +476,7 @@ const frTranslations = {
     title: "Contactez-nous",
     subtitle: "Nous sommes là pour répondre à vos questions et vous accompagner dans vos projets de construction durable.",
     form: {
+      title: "Formulaire de contact",
       name: "Nom complet",
       email: "Adresse email",
       phone: "Téléphone",
@@ -983,6 +984,7 @@ const enTranslations = {
     title: "Contact us",
     subtitle: "We are here to answer your questions and support you in your sustainable construction projects.",
     form: {
+      title: "Contact Form",
       name: "Full name",
       email: "Email address",
       phone: "Phone",
