@@ -1,140 +1,148 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import CountdownTimer from '../components/CountdownTimer';
 import './HomePage.css';
 
 const HomePage = () => {
   const { t } = useTranslation();
-
-  // État pour le slider hero
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState({});
+  const observerRef = useRef();
 
-  // Slides du hero avec traductions
+  // Slides du hero
   const heroSlides = [
     {
       id: 1,
-      title: t('hero.slide1.title'),
-      subtitle: t('hero.slide1.subtitle'),
+      title: "Construire aujourd'hui, penser demain.",
+      subtitle: "Le Tunisia Green Building Council œuvre pour un avenir durable à travers la promotion de la construction écologique en Tunisie.",
       image: "/images/hero-slide-1.jpg",
-      cta: t('hero.slide1.cta')
+      cta1: "Découvrir nos programmes",
+      cta2: "Devenir membre"
     },
     {
       id: 2,
-      title: t('hero.slide2.title'),
-      subtitle: t('hero.slide2.subtitle'),
+      title: "Innovation & Durabilité",
+      subtitle: "Nous développons des solutions innovantes pour transformer l'environnement bâti tunisien vers plus de durabilité.",
       image: "/images/hero-slide-2.jpg",
-      cta: t('hero.slide2.cta')
+      cta1: "Nos innovations",
+      cta2: "Rejoindre le réseau"
     },
     {
       id: 3,
-      title: t('hero.slide3.title'),
-      subtitle: t('hero.slide3.subtitle'),
+      title: "Formation & Certification",
+      subtitle: "Renforcez vos compétences avec nos programmes de formation spécialisés en construction durable.",
       image: "/images/hero-slide-3.jpg",
-      cta: t('hero.slide3.cta')
+      cta1: "Voir les formations",
+      cta2: "S'inscrire"
     },
     {
       id: 4,
-      title: t('hero.slide4.title'),
-      subtitle: t('hero.slide4.subtitle'),
+      title: "Partenariat & Collaboration",
+      subtitle: "Rejoignez notre réseau d'acteurs engagés pour construire ensemble l'avenir durable de la Tunisie.",
       image: "/images/hero-slide-4.jpg",
-      cta: t('hero.slide4.cta')
+      cta1: "Nos partenaires",
+      cta2: "Devenir partenaire"
     }
   ];
 
-  // Chiffres clés avec animation
+  // Chiffres clés animés
   const [keyFigures, setKeyFigures] = useState({
-    members: 0,
+    professionals: 0,
     projects: 0,
-    events: 0,
-    resources: 0
+    partners: 0,
+    emissions: 0
   });
 
-  const targetFigures = useMemo(() => ({
-    members: 150,
-    projects: 25,
-    events: 12,
-    resources: 45
-  }), []);
+  const targetFigures = {
+    professionals: 120,
+    projects: 45,
+    partners: 20,
+    emissions: 2800
+  };
 
-  // Auto-slider pour le hero
+  // Auto-slider
   useEffect(() => {
-    const sliderInterval = setInterval(() => {
+    const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroSlides.length);
-    }, 5000); // Change de slide toutes les 5 secondes
-
-    return () => clearInterval(sliderInterval);
+    }, 5000);
+    return () => clearInterval(interval);
   }, [heroSlides.length]);
 
-  // Animation des compteurs
+  // Animation des chiffres
   useEffect(() => {
-    const animateCounters = () => {
-      const duration = 2000; // 2 seconds
-      const steps = 60;
-      const stepDuration = duration / steps;
-
-      let step = 0;
-      const timer = setInterval(() => {
-        step++;
-        const progress = step / steps;
-        
-        setKeyFigures({
-          members: Math.floor(targetFigures.members * progress),
-          projects: Math.floor(targetFigures.projects * progress),
-          events: Math.floor(targetFigures.events * progress),
-          resources: Math.floor(targetFigures.resources * progress)
-        });
-
-        if (step >= steps) {
-          clearInterval(timer);
-          setKeyFigures(targetFigures);
-        }
-      }, stepDuration);
+    const animateNumbers = () => {
+      Object.keys(targetFigures).forEach((key, index) => {
+        setTimeout(() => {
+          let current = 0;
+          const increment = targetFigures[key] / 60;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= targetFigures[key]) {
+              setKeyFigures(prev => ({ ...prev, [key]: targetFigures[key] }));
+              clearInterval(timer);
+            } else {
+              setKeyFigures(prev => ({ ...prev, [key]: Math.floor(current) }));
+            }
+          }, 30);
+        }, index * 200);
+      });
     };
 
-    // Démarrer l'animation après un délai
-    const timer = setTimeout(animateCounters, 500);
+    const timer = setTimeout(animateNumbers, 1000);
     return () => clearTimeout(timer);
-  }, [targetFigures]);
+  }, []);
 
-  // Fonction pour changer de slide manuellement
+  // Intersection Observer pour les animations
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => observerRef.current.observe(el));
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
-  // Fonction pour slide suivant/précédent
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % heroSlides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + heroSlides.length) % heroSlides.length);
-  };
-
   return (
     <div className="home-page">
-      {/* Hero Slider Section */}
-      <section className="hero-slider-section">
-        <div className="hero-slider-container">
+      {/* 1. Hero Section */}
+      <section className="hero-section">
+        <div className="hero-slider">
           {heroSlides.map((slide, index) => (
-            <div 
+            <div
               key={slide.id}
               className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
             >
-              <div className="hero-slide-bg">
+              <div className="hero-image">
                 <img src={slide.image} alt={slide.title} />
-                <div className="hero-slide-overlay"></div>
+                <div className="hero-overlay"></div>
               </div>
-              <div className="hero-slide-content">
+              <div className="hero-content">
                 <div className="container">
-                  <div className="hero-slide-text">
-                    <h1 className="hero-slide-title">{slide.title}</h1>
-                    <p className="hero-slide-subtitle">{slide.subtitle}</p>
-                    <div className="hero-slide-buttons">
-                      <a href="/contact" className="btn btn-hero-primary">
-                        {slide.cta}
+                  <div className="hero-text">
+                    <h1 className="hero-title">{slide.title}</h1>
+                    <p className="hero-subtitle">{slide.subtitle}</p>
+                    <div className="hero-buttons">
+                      <a href="/programs" className="btn btn-primary">
+                        {slide.cta1}
                       </a>
-                      <a href="/about" className="btn btn-hero-secondary">
-                        {t('hero.learnMore')}
+                      <a href="/membership" className="btn btn-secondary">
+                        {slide.cta2}
                       </a>
                     </div>
                   </div>
@@ -142,324 +150,385 @@ const HomePage = () => {
               </div>
             </div>
           ))}
-          
-          {/* Navigation du slider */}
-          <div className="hero-slider-nav">
-            <button className="slider-nav-btn prev" onClick={prevSlide}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <button className="slider-nav-btn next" onClick={nextSlide}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
+        </div>
+        
+        <div className="hero-navigation">
+          <button
+            className="nav-btn prev"
+            onClick={() => goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length)}
+          >
+            ‹
+          </button>
+          <button
+            className="nav-btn next"
+            onClick={() => goToSlide((currentSlide + 1) % heroSlides.length)}
+          >
+            ›
+          </button>
+        </div>
 
-          {/* Indicateurs du slider */}
-          <div className="hero-slider-indicators">
-            {heroSlides.map((_, index) => (
-              <button
-                key={index}
-                className={`slider-indicator ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
-          </div>
+        <div className="hero-indicators">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
         </div>
       </section>
 
-
-
-      {/* Section Images Défilantes */}
-      <section className="floating-images-section">
-        <div className="floating-images-container">
-          <div className="floating-image-track">
-            <div className="floating-image-item">
-              <div className="floating-icon">🏢</div>
-              <span>Bâtiments Verts</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">🌱</div>
-              <span>Écologie</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">⚡</div>
-              <span>Énergie</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">♻️</div>
-              <span>Recyclage</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">🌿</div>
-              <span>Nature</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">🏗️</div>
-              <span>Construction</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">💡</div>
-              <span>Innovation</span>
-            </div>
-            <div className="floating-image-item">
-              <div className="floating-icon">🌍</div>
-              <span>Durabilité</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Présentation rapide TGBC */}
-      <section className="presentation-section">
+      {/* 2. À propos du TGBC */}
+      <section className="about-section">
         <div className="container">
-          <div className="presentation-content">
-            <div className="presentation-text">
-              <h2 className="section-title">{t('presentation.title')}</h2>
+          <div className="about-content">
+            <div className="about-text">
+              <h2 className="section-title">Qui sommes-nous ?</h2>
               <p className="section-description">
-                {t('presentation.description')}
+                Le TGBC est une organisation à but non lucratif dédiée à la promotion du bâtiment durable. 
+                Nous rassemblons les acteurs de la construction, de l'urbanisme et de l'environnement pour 
+                bâtir un avenir plus vert en Tunisie.
               </p>
-              <a href="/about" className="btn btn-outline">{t('presentation.learnMore')}</a>
+              <a href="/about" className="btn btn-outline">
+                En savoir plus
+              </a>
             </div>
-            <div className="presentation-icons">
-              <div className="icon-card">
-                <div className="icon">💡</div>
-                <h3>{t('presentation.innovation')}</h3>
-              </div>
-              <div className="icon-card">
-                <div className="icon">🌱</div>
-                <h3>{t('presentation.sustainability')}</h3>
-              </div>
-              <div className="icon-card">
-                <div className="icon">🤝</div>
-                <h3>{t('presentation.community')}</h3>
-              </div>
+            <div className="about-image">
+              <img src="/images/green building.png" alt="Bâtiment vert tunisien" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Chiffres clés */}
-      <section className="key-figures-section">
-        <div className="container">
-          <h2>Nos Chiffres Clés</h2>
-          <div className="figures-grid">
-            <div className="figure-item">
-              <div className="figure-number">{keyFigures.members}+</div>
-              <div className="figure-label">Membres actifs</div>
-            </div>
-            <div className="figure-item">
-              <div className="figure-number">{keyFigures.projects}</div>
-              <div className="figure-label">Projets certifiés</div>
-            </div>
-            <div className="figure-item">
-              <div className="figure-number">{keyFigures.events}</div>
-              <div className="figure-label">Événements organisés</div>
-            </div>
-            <div className="figure-item">
-              <div className="figure-number">{keyFigures.resources}</div>
-              <div className="figure-label">Ressources disponibles</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Actualités & Articles */}
-      <section className="news-section">
+      {/* 3. Nos programmes phares */}
+      <section className="programs-section">
         <div className="container">
           <div className="section-header">
-            <h2>Actualités & Articles</h2>
-            <a href="/news" className="btn btn-outline">Voir toutes les actualités</a>
+            <h2 className="section-title">Nos programmes phares</h2>
+            <p className="section-subtitle">
+              Découvrez nos initiatives principales pour un bâtiment durable en Tunisie
+            </p>
           </div>
-          <div className="news-grid">
-            <article className="news-card">
-              <div className="news-image">
-                <div className="placeholder-image">🏢</div>
+          <div className="programs-marquee">
+            <div className="programs-track">
+              <div className="program-card">
+                <div className="program-icon">📚</div>
+                <h3>Formation & Certification</h3>
+                <p>Renforcer les compétences des professionnels du secteur de la construction durable.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-              <div className="news-content">
-                <h3>Nouvelle certification LEED en Tunisie</h3>
-                <p>Découvrez les premiers projets certifiés LEED dans notre pays...</p>
-                <span className="news-date">15 Nov 2024</span>
+              <div className="program-card">
+                <div className="program-icon">🏙️</div>
+                <h3>Green Cities Tunisia</h3>
+                <p>Accompagner les villes tunisiennes vers un développement urbain plus durable.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-            </article>
-            <article className="news-card">
-              <div className="news-image">
-                <div className="placeholder-image">🌱</div>
+              <div className="program-card">
+                <div className="program-icon">💡</div>
+                <h3>Innovation & Recherche</h3>
+                <p>Promouvoir les technologies vertes et les solutions innovantes pour le bâtiment.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-              <div className="news-content">
-                <h3>Formation sur les matériaux durables</h3>
-                <p>Une session de formation intensive sur les nouveaux matériaux...</p>
-                <span className="news-date">10 Nov 2024</span>
+              <div className="program-card">
+                <div className="program-icon">🌍</div>
+                <h3>Sensibilisation & Plaidoyer</h3>
+                <p>Encourager la transition écologique à travers l'éducation et le plaidoyer.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-            </article>
-            <article className="news-card">
-              <div className="news-image">
-                <div className="placeholder-image">📊</div>
+              {/* Duplicate for seamless scroll */}
+              <div className="program-card">
+                <div className="program-icon">📚</div>
+                <h3>Formation & Certification</h3>
+                <p>Renforcer les compétences des professionnels du secteur de la construction durable.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-              <div className="news-content">
-                <h3>Rapport annuel 2024</h3>
-                <p>Consultez notre rapport annuel sur l'état de la construction...</p>
-                <span className="news-date">5 Nov 2024</span>
+              <div className="program-card">
+                <div className="program-icon">🏙️</div>
+                <h3>Green Cities Tunisia</h3>
+                <p>Accompagner les villes tunisiennes vers un développement urbain plus durable.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
               </div>
-            </article>
+              <div className="program-card">
+                <div className="program-icon">💡</div>
+                <h3>Innovation & Recherche</h3>
+                <p>Promouvoir les technologies vertes et les solutions innovantes pour le bâtiment.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
+              </div>
+              <div className="program-card">
+                <div className="program-icon">🌍</div>
+                <h3>Sensibilisation & Plaidoyer</h3>
+                <p>Encourager la transition écologique à travers l'éducation et le plaidoyer.</p>
+                <a href="/programs" className="program-link">Découvrir le programme</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Événements à venir */}
+      {/* 4. Projets & Réalisations */}
+      <section className="projects-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Projets & Réalisations</h2>
+            <p className="section-subtitle">
+              Découvrez nos réalisations concrètes et nos projets inspirants
+            </p>
+          </div>
+          <div className="projects-grid">
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/programs-hero.jpg" alt="Projet 1" />
+              </div>
+              <div className="project-content">
+                <h3>Bâtiment certifié LEED</h3>
+                <p>Tunis, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/programs-section-1.jpg" alt="Projet 2" />
+              </div>
+              <div className="project-content">
+                <h3>Centre de formation durable</h3>
+                <p>Sousse, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/programs-section-2.jpg" alt="Projet 3" />
+              </div>
+              <div className="project-content">
+                <h3>Quartier écologique</h3>
+                <p>Monastir, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/hero-slide-1.jpg" alt="Projet 4" />
+              </div>
+              <div className="project-content">
+                <h3>Rénovation énergétique</h3>
+                <p>Bizerte, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/hero-slide-2.jpg" alt="Projet 5" />
+              </div>
+              <div className="project-content">
+                <h3>École verte</h3>
+                <p>Kairouan, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+            <div className="project-item">
+              <div className="project-image">
+                <img src="/images/hero-slide-3.jpg" alt="Projet 6" />
+              </div>
+              <div className="project-content">
+                <h3>Hôpital durable</h3>
+                <p>Sfax, Tunisie</p>
+                <a href="#" className="project-link">Voir plus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Nos événements à venir */}
       <section className="events-section">
         <div className="container">
           <div className="section-header">
-            <h2>Événements à venir</h2>
-            <a href="/events" className="btn btn-outline">Tous les événements</a>
+            <h2 className="section-title">Nos événements à venir</h2>
+            <p className="section-subtitle">
+              Rejoignez-nous pour nos prochains événements et formations
+            </p>
           </div>
           <div className="events-grid">
             <div className="event-card">
               <div className="event-date">
                 <span className="day">15</span>
-                <span className="month">Nov</span>
+                <span className="month">MAR</span>
               </div>
               <div className="event-content">
-                <h3>Conférence sur la construction durable</h3>
-                <p>Une journée dédiée aux innovations dans le secteur...</p>
-                <a href="/events/conference" className="btn btn-small">S'inscrire</a>
+                <h3>Forum du Bâtiment Durable 2025</h3>
+                <p>Tunis, Tunisie</p>
+                <a href="/events" className="event-link">S'inscrire</a>
               </div>
             </div>
             <div className="event-card">
               <div className="event-date">
                 <span className="day">22</span>
-                <span className="month">Nov</span>
+                <span className="month">MAR</span>
               </div>
               <div className="event-content">
-                <h3>Atelier matériaux écologiques</h3>
-                <p>Découvrez les nouveaux matériaux de construction...</p>
-                <a href="/events/workshop" className="btn btn-small">S'inscrire</a>
+                <h3>Atelier Matériaux Écologiques</h3>
+                <p>Sousse, Tunisie</p>
+                <a href="/events" className="event-link">S'inscrire</a>
               </div>
             </div>
             <div className="event-card">
               <div className="event-date">
-                <span className="day">30</span>
-                <span className="month">Nov</span>
+                <span className="day">05</span>
+                <span className="month">AVR</span>
               </div>
               <div className="event-content">
-                <h3>Visite de site certifié</h3>
-                <p>Visite guidée d'un bâtiment certifié LEED...</p>
-                <a href="/events/visit" className="btn btn-small">S'inscrire</a>
+                <h3>Formation Bâtiments Zéro Énergie</h3>
+                <p>Monastir, Tunisie</p>
+                <a href="/events" className="event-link">S'inscrire</a>
               </div>
             </div>
           </div>
+          <div className="events-cta">
+            <a href="/events" className="btn btn-outline">Voir tout l'agenda</a>
+          </div>
         </div>
       </section>
 
-      {/* Programmes & Initiatives */}
-      <section className="programs-section">
+      {/* 6. Adhésion au TGBC */}
+      <section className="membership-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Programmes & Initiatives</h2>
-            <a href="/programs" className="btn btn-outline">Découvrir nos programmes</a>
-          </div>
-          <div className="programs-grid">
-            <div className="program-card">
-              <div className="program-icon">🏆</div>
-              <h3>Certifications</h3>
-              <p>Programmes de certification pour les bâtiments verts et les professionnels</p>
+          <div className="membership-content">
+            <div className="membership-text">
+              <h2 className="section-title">Rejoignez le mouvement du bâtiment durable</h2>
+              <p className="section-description">
+                En devenant membre du TGBC, vous bénéficiez de ressources exclusives, de formations, 
+                et d'un réseau d'acteurs engagés pour construire ensemble un avenir plus vert.
+              </p>
+              <a href="/membership" className="btn btn-primary">Devenir membre</a>
             </div>
-            <div className="program-card">
-              <div className="program-icon">📚</div>
-              <h3>Formations</h3>
-              <p>Ateliers et formations spécialisées en construction durable</p>
-            </div>
-            <div className="program-card">
-              <div className="program-icon">🔧</div>
-              <h3>Outils pratiques</h3>
-              <p>Guides et outils pour la mise en œuvre de projets durables</p>
-            </div>
-            <div className="program-card">
-              <div className="program-icon">🚀</div>
-              <h3>Projets pilotes</h3>
-              <p>Accompagnement de projets innovants et durables</p>
+            <div className="membership-image">
+              <img src="/images/hero-slide-4.jpg" alt="Atelier TGBC" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Témoignages & Partenaires */}
-      <section className="testimonials-section">
+      {/* 7. Nos impacts en chiffres */}
+      <section className="impact-section">
         <div className="container">
           <div className="section-header">
-            <h2>Témoignages & Partenaires</h2>
-            <a href="/members" className="btn btn-outline">Rejoindre le réseau</a>
+            <h2 className="section-title">Nos impacts en chiffres</h2>
+            <p className="section-subtitle">
+              Des résultats concrets qui témoignent de notre engagement
+            </p>
           </div>
-          <div className="testimonials-content">
-            <div className="testimonials">
-              <div className="testimonial">
-                <p>"Le TGBC m'a permis de développer mes compétences en construction durable et de rejoindre un réseau professionnel dynamique."</p>
-                <span className="author">- Ahmed Ben Ali, Architecte</span>
+          <div className="impact-grid">
+            <div className="impact-item">
+              <div className="impact-icon">🧑‍🎓</div>
+              <div className="impact-number">{keyFigures.professionals}+</div>
+              <div className="impact-label">Professionnels formés</div>
+            </div>
+            <div className="impact-item">
+              <div className="impact-icon">🏗️</div>
+              <div className="impact-number">{keyFigures.projects}</div>
+              <div className="impact-label">Projets accompagnés</div>
+            </div>
+            <div className="impact-item">
+              <div className="impact-icon">🏙️</div>
+              <div className="impact-number">{keyFigures.partners}</div>
+              <div className="impact-label">Partenaires institutionnels</div>
+            </div>
+            <div className="impact-item">
+              <div className="impact-icon">🌍</div>
+              <div className="impact-number">{keyFigures.emissions}</div>
+              <div className="impact-label">Émissions évitées (tCO₂e)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Partenaires & Soutiens */}
+      <section className="partners-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Partenaires & Soutiens</h2>
+            <p className="section-subtitle">
+              Nos collaborations pour un impact plus fort
+            </p>
+          </div>
+          <div className="partners-slider">
+            <div className="partners-track">
+              <div className="partner-logo">BERD</div>
+              <div className="partner-logo">IFC</div>
+              <div className="partner-logo">GIZ</div>
+              <div className="partner-logo">Ministère Environnement</div>
+              <div className="partner-logo">Université Tunis</div>
+              <div className="partner-logo">ANME</div>
+              <div className="partner-logo">CNUD</div>
+              <div className="partner-logo">ONAS</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Actualités & Ressources */}
+      <section className="news-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Actualités & Ressources</h2>
+            <p className="section-subtitle">
+              Restez informé de nos dernières activités et ressources
+            </p>
+          </div>
+          <div className="news-grid">
+            <div className="news-item">
+              <div className="news-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop&crop=center" alt="Bâtiment vert certifié LEED" />
               </div>
-              <div className="testimonial">
-                <p>"Grâce aux formations du TGBC, notre entreprise a pu certifier ses premiers projets verts."</p>
-                <span className="author">- Fatma Khelil, Directrice Projets</span>
+              <div className="news-content">
+                <span className="news-category">Actualité</span>
+                <h3>Nouvelle certification LEED en Tunisie</h3>
+                <p>Découvrez les premiers projets certifiés LEED dans notre pays...</p>
+                <a href="/news" className="news-link">Lire la suite</a>
               </div>
             </div>
-            <div className="partners-logos">
-              <div className="partner-logo">🏢</div>
-              <div className="partner-logo">🏗️</div>
-              <div className="partner-logo">🌿</div>
-              <div className="partner-logo">⚡</div>
+            <div className="news-item">
+              <div className="news-image">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=250&fit=crop&crop=center" alt="Formation construction durable" />
+              </div>
+              <div className="news-content">
+                <span className="news-category">Formation</span>
+                <h3>Formation sur les matériaux durables</h3>
+                <p>Une session de formation intensive sur les nouveaux matériaux...</p>
+                <a href="/news" className="news-link">Lire la suite</a>
+              </div>
             </div>
+            <div className="news-item">
+              <div className="news-image">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=250&fit=crop&crop=center" alt="Architecture durable moderne" />
+              </div>
+              <div className="news-content">
+                <span className="news-category">Rapport</span>
+                <h3>Rapport annuel 2024</h3>
+                <p>Consultez notre rapport annuel sur l'état de la construction...</p>
+                <a href="/news" className="news-link">Lire la suite</a>
+              </div>
+            </div>
+          </div>
+          <div className="news-cta">
+            <a href="/news" className="btn btn-outline">Voir toutes les actualités</a>
           </div>
         </div>
       </section>
 
-      {/* Ressources */}
-      <section className="resources-section">
+      {/* 10. Section finale CTA */}
+      <section className="final-cta-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Ressources en accès libre</h2>
-            <a href="/resources" className="btn btn-outline">Accéder à toutes nos ressources</a>
-          </div>
-          <div className="resources-grid">
-            <div className="resource-item">
-              <div className="resource-icon">📄</div>
-              <h3>Rapports</h3>
-              <p>Études et rapports sur la construction durable</p>
-            </div>
-            <div className="resource-item">
-              <div className="resource-icon">📖</div>
-              <h3>Guides pratiques</h3>
-              <p>Manuels et guides pour les professionnels</p>
-            </div>
-            <div className="resource-item">
-              <div className="resource-icon">🎥</div>
-              <h3>Vidéos</h3>
-              <p>Formations et conférences en ligne</p>
+          <div className="final-cta-content">
+            <h2>Ensemble, faisons du bâtiment durable une réalité</h2>
+            <p>
+              🌿 Rejoignez le TGBC, participez à nos formations et construisez un avenir plus vert.
+            </p>
+            <div className="final-cta-buttons">
+              <a href="/membership" className="btn btn-primary">Devenir membre</a>
+              <a href="/contact" className="btn btn-secondary">S'abonner à la newsletter</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="newsletter-section">
-        <div className="container">
-          <div className="newsletter-content">
-            <div className="newsletter-text">
-              <h2>Restez informés sur la construction durable en Tunisie</h2>
-              <p>Recevez nos dernières actualités, événements et ressources directement dans votre boîte mail.</p>
-            </div>
-            <form className="newsletter-form">
-              <input type="email" placeholder="Votre adresse email" required />
-              <button type="submit" className="btn btn-primary">S'abonner</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* Countdown Section */}
-      <section className="countdown-section">
-        <div className="container">
-          <CountdownTimer />
         </div>
       </section>
     </div>
