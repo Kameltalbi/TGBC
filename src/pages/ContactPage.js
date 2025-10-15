@@ -5,10 +5,10 @@ import './ContactPage.css';
 const ContactPage = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     phone: '',
+    subject: '',
     message: ''
   });
 
@@ -32,10 +32,10 @@ const ContactPage = () => {
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
         phone: '',
+        subject: '',
         message: ''
       });
     }, 2000);
@@ -44,38 +44,50 @@ const ContactPage = () => {
   return (
     <div className="contact-page">
       <div className="contact-container">
-        {/* Left Section - Dark Background */}
+        {/* Left Section - Contact Info */}
         <div className="contact-left">
           <div className="contact-left-content">
             <h1 className="contact-main-title">
-              Nous aimerions avoir de vos nouvelles
+              {t('contact.mainTitle')}
             </h1>
-            <div className="decorative-circles">
-              <div className="circle circle-solid"></div>
-              <div className="circle circle-dashed"></div>
-              <div className="circle circle-solid"></div>
-            </div>
-          </div>
-          <div className="contact-footer-left">
-            <div className="footer-logo">
-              <div className="logo-circles">
-                <div className="logo-circle"></div>
-                <div className="logo-circle"></div>
-                <div className="logo-circle"></div>
+            <p className="contact-subtitle">
+              {t('contact.subtitleLeft')}
+            </p>
+            
+            <div className="contact-info">
+              <div className="info-item">
+                <h3 className="info-label">{t('contact.phone')}</h3>
+                <p className="info-value">+216 71 709 647</p>
               </div>
-            </div>
-            <div className="footer-links">
-              <a href="#" className="footer-link">Politique de confidentialité</a>
-              <a href="#" className="footer-link">Déclaration moderne</a>
-              <a href="#" className="footer-link">Déclaration d'impact social</a>
+              
+              <div className="info-item">
+                <h3 className="info-label">{t('contact.email')}</h3>
+                <p className="info-value">contact@tunisiagbc.org</p>
+              </div>
+              
+              <div className="info-item">
+                <h3 className="info-label">{t('contact.office')}</h3>
+                <p className="info-value">
+                  Immeuble Hayet, 2 rue du Lac Loch Ness<br />
+                  Mezzanine, App 5<br />
+                  Les Berges du Lac 1053
+                </p>
+                <a href="https://maps.google.com" className="map-link">
+                  {t('contact.seeOnMap')}
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right Section - Light Background */}
+        {/* Right Section - Contact Form */}
         <div className="contact-right">
           <div className="contact-right-content">
-            <h2 className="contact-form-title">Contactez-nous</h2>
+            <p className="form-intro">
+              {t('contact.formIntro')}
+            </p>
+            
+            <h2 className="contact-form-title">{t('contact.formTitle')}</h2>
             
             {submitStatus === 'success' && (
               <div className="success-message">
@@ -84,65 +96,56 @@ const ContactPage = () => {
             )}
 
             <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="firstName">PRÉNOM</label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    placeholder="Entrez votre prénom"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="lastName">NOM</label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder="Entrez votre nom"
-                  />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="email">EMAIL</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Entrez votre email"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="phone">TÉLÉPHONE</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Entrez votre numéro de téléphone"
-                  />
-                </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={t('contact.name')}
+                  required
+                />
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">MESSAGE</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder={t('contact.email')}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder={t('contact.phonePlaceholder')}
+                />
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder={t('contact.subject')}
+                />
+              </div>
+
+              <div className="form-group">
                 <textarea
-                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Entrez votre message"
+                  placeholder={t('contact.message')}
                   rows="4"
+                  required
                 ></textarea>
               </div>
 
@@ -151,26 +154,9 @@ const ContactPage = () => {
                 className="submit-btn"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Envoi...' : 'Envoyer →'}
+                {isSubmitting ? 'Envoi...' : t('contact.sendButton')}
               </button>
             </form>
-
-            <div className="email-section">
-              <h3 className="email-title">ÉCRIVEZ-NOUS</h3>
-              <a href="mailto:contact@tunisiagbc.org" className="email-link">
-                contact@tunisiagbc.org
-              </a>
-            </div>
-          </div>
-
-          <div className="contact-footer-right">
-            <a href="mailto:contact@tunisiagbc.org" className="footer-email">
-              contact@tunisiagbc.org
-            </a>
-            <div className="social-links">
-              <a href="https://www.facebook.com/TunisiaGBC" className="social-link">Facebook</a>
-              <a href="https://tn.linkedin.com/company/tunisia-green-building-council" className="social-link">LinkedIn</a>
-            </div>
           </div>
         </div>
       </div>
